@@ -1,0 +1,10 @@
+{
+  "name": "proxy",
+  "version": "1.0.0",
+  "description": "Notion webhookインテグレーションをGitHubに中継",
+  "dependencies": {
+    "@octokit/rest": "^19.0.0"
+  },
+  "author": "majikana-rinadehi",
+  "license": "ISC"
+}
