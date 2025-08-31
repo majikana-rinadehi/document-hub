@@ -1,18 +1,20 @@
 name: Notion to GitHub Sync
 on:
-  workflow_dispatch:  # 手動トリガー＆API呼び出し用
+  repository_dispatch:
+    types: [notion-article-updated]  # カスタムイベントタイプ
 
 jobs:
-  debug:
+  sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Debug webhook payload
+      - name: Debug payload
         run: |
-          echo "=== Webhook Debug Info ==="
-          echo "Event name: ${{ github.event_name }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "Ref: ${{ github.ref }}"
-          echo "Actor: ${{ github.actor }}"
-          echo "Run ID: ${{ github.run_id }}"
-          echo "=== Environment Variables ==="
-          env | sort
+          echo "Event type: ${{ github.event.action }}"
+          echo "Client payload: ${{ toJson(github.event.client_payload) }}"
+          
+      - name: Process Notion update
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          # github.event.client_payloadからNotion記事IDなどを取得
+          echo "Processing article: ${{ github.event.client_payload.page_id }}"
