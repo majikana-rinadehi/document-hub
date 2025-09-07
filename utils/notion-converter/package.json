@@ -1,5 +1,5 @@
 {
-  "name": "notion-converter",
+  "name": "@document-hub/notion-converter",
   "version": "1.0.0",
   "description": "Notion記事をMarkdown形式に変換し、画像を適切に処理するコンバーターライブラリ",
   "main": "dist/index.js",

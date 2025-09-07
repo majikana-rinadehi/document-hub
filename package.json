@@ -1,0 +1,30 @@
+{
+  "name": "document-hub",
+  "version": "1.0.0",
+  "description": "Notion記事をMarkdownに変換して管理するドキュメントハブ",
+  "private": true,
+  "workspaces": [
+    "utils/notion-fetcher",
+    "utils/notion-converter",
+    "utils/notion-processor"
+  ],
+  "scripts": {
+    "install": "bun install",
+    "build": "bun run build:all",
+    "build:all": "bun run build:fetcher && bun run build:converter && bun run build:processor",
+    "build:fetcher": "cd utils/notion-fetcher && bun run build",
+    "build:converter": "cd utils/notion-converter && bun run build",
+    "build:processor": "cd utils/notion-processor && bun run build",
+    "test": "bun run test:all",
+    "test:all": "bun run test:fetcher && bun run test:converter && bun run test:processor",
+    "test:fetcher": "cd utils/notion-fetcher && bun test",
+    "test:converter": "cd utils/notion-converter && bun test",
+    "test:processor": "cd utils/notion-processor && bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.0.0"
+  },
+  "author": "",
+  "license": "MIT"
+}

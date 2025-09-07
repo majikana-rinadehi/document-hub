@@ -1,5 +1,5 @@
 {
-  "name": "notion-fetcher",
+  "name": "@document-hub/notion-fetcher",
   "version": "1.0.0",
   "description": "Notion APIを使用して記事データを取得するクライアントライブラリ",
   "main": "dist/index.js",
