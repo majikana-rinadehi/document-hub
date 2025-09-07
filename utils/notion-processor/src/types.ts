@@ -1,12 +1,12 @@
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints';
-import type { 
-  ArticleMetadata, 
-  NotionFetcherConfig 
-} from '../../notion-fetcher/src/types';
-import type { 
-  ConversionConfig, 
-  ImageInfo 
-} from '../../notion-converter/src/types';
+import type {
+  ArticleMetadata,
+  NotionFetcherConfig,
+} from '@document-hub/notion-fetcher/src/types';
+import type {
+  ConversionConfig,
+  ImageInfo,
+} from '@document-hub/notion-converter/src/types';
 
 export interface NotionProcessorConfig {
   notionApiKey: string;
@@ -32,27 +32,27 @@ export interface BatchProcessOptions {
 
 export interface BatchProcessResult {
   successful: ProcessedArticle[];
-  failed: Array<{
+  failed: {
     articleId: string;
     error: Error;
-  }>;
+  }[];
 }
 
 export class NotionProcessorError extends Error {
   constructor(
     message: string,
     public readonly code: string,
-    public readonly details?: any,
+    public readonly details?: unknown,
   ) {
     super(message);
     this.name = 'NotionProcessorError';
   }
 }
 
-export type { 
-  ArticleMetadata, 
+export type {
+  ArticleMetadata,
   ImageInfo,
   BlockObjectResponse,
   NotionFetcherConfig,
-  ConversionConfig
+  ConversionConfig,
 };

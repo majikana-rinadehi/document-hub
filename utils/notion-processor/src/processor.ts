@@ -1,22 +1,26 @@
-import { NotionFetcher } from '../../notion-fetcher/src/client';
-import { NotionConverter } from '../../notion-converter/src/converter';
 import { Client } from '@notionhq/client';
+import { NotionFetcher } from '@document-hub/notion-fetcher/src/client';
+import { NotionConverter } from '@document-hub/notion-converter/src/converter';
+import {
+  NotionProcessorError,
+} from './types';
 import type {
   NotionProcessorConfig,
   ProcessedArticle,
   BatchProcessOptions,
   BatchProcessResult,
-  NotionProcessorError,
 } from './types';
 
 export class NotionProcessor {
   private fetcher: NotionFetcher;
+
   private converter: NotionConverter;
+
   private config: NotionProcessorConfig;
 
   constructor(config: NotionProcessorConfig) {
     this.config = config;
-    
+
     this.fetcher = new NotionFetcher({
       apiKey: config.notionApiKey,
       maxRetries: config.maxRetries,
@@ -36,15 +40,12 @@ export class NotionProcessor {
 
   async processArticle(articleId: string): Promise<ProcessedArticle> {
     try {
-      console.log(`記事を処理中: ${articleId}`);
-      
       const articleData = await this.fetcher.fetchArticleById(articleId);
-      
+
       const conversionResult = await this.converter.convertPageToMarkdown(
         articleId,
-        articleData.blocks,
       );
-      
+
       return {
         metadata: articleData.metadata,
         markdown: conversionResult.markdown,
@@ -70,68 +71,88 @@ export class NotionProcessor {
     const concurrency = options?.concurrency ?? 3;
     const onProgress = options?.onProgress;
     const onError = options?.onError;
-    
+
     const successful: ProcessedArticle[] = [];
-    const failed: Array<{ articleId: string; error: Error }> = [];
-    
-    const chunks = this.chunkArray(articleIds, concurrency);
+    const failed: { articleId: string; error: Error }[] = [];
+
+    const chunks = NotionProcessor.chunkArray(articleIds, concurrency);
     let completed = 0;
-    
-    for (const chunk of chunks) {
-      const promises = chunk.map(async (articleId) => {
-        try {
-          const result = await this.processArticle(articleId);
-          successful.push(result);
-          completed++;
-          
-          if (onProgress) {
-            onProgress(completed, articleIds.length);
-          }
-          
-          return { success: true, result };
-        } catch (error) {
-          const err = error instanceof Error ? error : new Error(String(error));
-          failed.push({ articleId, error: err });
-          completed++;
-          
-          if (onError) {
-            onError(err, articleId);
-          }
-          
-          if (onProgress) {
-            onProgress(completed, articleIds.length);
-          }
-          
-          return { success: false, error: err };
+
+    const processArticleWithHandling = async (articleId: string): Promise<{
+      success: boolean;
+      result?: ProcessedArticle;
+      error?: Error;
+    }> => {
+      try {
+        const result = await this.processArticle(articleId);
+
+        successful.push(result);
+        completed += 1;
+
+        if (onProgress) {
+          onProgress(completed, articleIds.length);
         }
+
+        return { success: true, result };
+      } catch (error) {
+        const err = error instanceof Error ? error : new Error(String(error));
+
+        failed.push({ articleId, error: err });
+        completed += 1;
+
+        if (onError) {
+          onError(err, articleId);
+        }
+
+        if (onProgress) {
+          onProgress(completed, articleIds.length);
+        }
+
+        return { success: false, error: err };
+      }
+    };
+
+    const processAllChunks = async (): Promise<void> => {
+      const allPromises = chunks.map(async (chunk) => {
+        const promises = chunk.map(processArticleWithHandling);
+
+        return Promise.all(promises);
       });
-      
-      await Promise.all(promises);
-    }
-    
+
+      await Promise.all(allPromises);
+    };
+
+    await processAllChunks();
+
     return { successful, failed };
   }
 
-  private chunkArray<T>(array: T[], size: number): T[][] {
+  private static chunkArray<T>(array: T[], size: number): T[][] {
     const chunks: T[][] = [];
+
     for (let i = 0; i < array.length; i += size) {
       chunks.push(array.slice(i, i + size));
     }
+
     return chunks;
   }
 
   async testConnection(): Promise<boolean> {
     try {
       const testPageId = process.env.NOTION_TEST_PAGE_ID;
+
       if (!testPageId) {
         console.warn('NOTION_TEST_PAGE_IDが設定されていません');
+
         return false;
       }
-      
+
       await this.fetcher.fetchPageProperties(testPageId);
+
       return true;
     } catch (error) {
       console.error('Notion APIへの接続テストに失敗:', error);
+
       return false;
     }
   }

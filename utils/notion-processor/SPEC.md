@@ -1,0 +1,1 @@
+- eslint機能を追加、AirBnbベース、strictで

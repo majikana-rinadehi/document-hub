@@ -1,6 +1,6 @@
 export { NotionProcessor } from './processor';
-export { NotionFetcher } from '../../notion-fetcher/src/client';
-export { NotionConverter } from '../../notion-converter/src/converter';
+export { NotionFetcher } from '@document-hub/notion-fetcher/src/client';
+export { NotionConverter } from '@document-hub/notion-converter/src/converter';
 
 export {
   processNotionArticle,
@@ -22,5 +22,5 @@ export type {
   ConversionConfig,
 } from './types';
 
-export { NotionFetcherError } from '../../notion-fetcher/src/types';
-export { NotionConverterError } from '../../notion-converter/src/types';
+export { NotionFetcherError } from '@document-hub/notion-fetcher/src/types';
+export { NotionConverterError } from '@document-hub/notion-converter/src/types';
