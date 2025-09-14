@@ -9,7 +9,6 @@
     "utils/notion-processor"
   ],
   "scripts": {
-    "install": "bun install",
     "build": "bun run build:all",
     "build:all": "bun run build:fetcher && bun run build:converter && bun run build:processor",
     "build:fetcher": "cd utils/notion-fetcher && bun run build",
