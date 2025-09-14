@@ -32,10 +32,7 @@ export default async function handler(req, res) {
       repo: process.env.GITHUB_REPO,
       event_type: "notion-article-updated",
       client_payload: {
-        page_id: req.body.page_id,
-        database_id: req.body.database_id,
-        action: req.body.action || "updated",
-        timestamp: new Date().toISOString(),
+        ...req.body,
       },
     });
 
