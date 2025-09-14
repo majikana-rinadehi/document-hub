@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "bun run src/index.ts",
     "build": "bun build src/index.ts --outdir dist --target node",
-    "test": "bun test",
+    "test": "bun test tests/helpers.test.ts tests/integration.test.ts tests/processor.test.ts tests/unit.test.ts",
+    "test:all": "bun test",
+    "test:mocked": "bun test tests/helpers-mocked.test.ts",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write \"src/**/*.ts\"",

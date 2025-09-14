@@ -18,16 +18,19 @@ export interface NotionProcessorConfig {
 }
 
 export interface ProcessedArticle {
-  metadata: ArticleMetadata;
+  metadata: EnhancedArticleMetadata;
   markdown: string;
-  images: ImageInfo[];
+  images: EnhancedImageInfo[];
   processedAt: Date;
+  processingTime?: number;
 }
 
 export interface BatchProcessOptions {
   concurrency?: number;
   onProgress?: (completed: number, total: number) => void;
   onError?: (error: Error, articleId: string) => void;
+  continueOnError?: boolean;
+  retryFailedArticles?: boolean;
 }
 
 export interface BatchProcessResult {
@@ -36,6 +39,8 @@ export interface BatchProcessResult {
     articleId: string;
     error: Error;
   }[];
+  totalProcessed?: number;
+  totalTime?: number;
 }
 
 export class NotionProcessorError extends Error {
@@ -47,6 +52,44 @@ export class NotionProcessorError extends Error {
     super(message);
     this.name = 'NotionProcessorError';
   }
+}
+
+// Enhanced metadata type with additional properties
+export interface EnhancedArticleMetadata extends ArticleMetadata {
+  tags?: string[];
+  author?: string;
+  status?: string;
+}
+
+// Enhanced image info type with additional properties
+export interface EnhancedImageInfo extends ImageInfo {
+  width?: number;
+  height?: number;
+  format?: string;
+}
+
+// エラータイプ列挙
+export enum ErrorType {
+  NETWORK_ERROR = 'NETWORK_ERROR',
+  API_LIMIT = 'API_LIMIT',
+  INVALID_DATA = 'INVALID_DATA',
+  PERMISSION_DENIED = 'PERMISSION_DENIED',
+  UNKNOWN = 'UNKNOWN',
+}
+
+// リトライオプション
+export interface RetryOptions {
+  maxRetries: number;
+  delay: number;
+  backoff: 'linear' | 'exponential';
+  onRetry?: (attempt: number, error: Error) => void;
+}
+
+// エラー分類器
+export interface ErrorClassifier {
+  classify(error: Error): ErrorType;
+  shouldRetry(errorType: ErrorType): boolean;
+  getRecoveryStrategy(errorType: ErrorType): () => Promise<void>;
 }
 
 export type {

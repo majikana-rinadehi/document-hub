@@ -41,7 +41,7 @@ describe('NotionFetcher', () => {
     const invalidPage = {
       object: 'block',
     };
-    
+
     expect((fetcher as any).isPageObjectResponse(validPage)).toBe(true);
     expect((fetcher as any).isPageObjectResponse(invalidPage)).toBe(false);
   });
@@ -53,23 +53,20 @@ describe('NotionFetcher', () => {
     const blockWithoutChildren = {
       has_children: false,
     };
-    
+
     expect((fetcher as any).hasChildren(blockWithChildren)).toBe(true);
     expect((fetcher as any).hasChildren(blockWithoutChildren)).toBe(false);
   });
 
   test('プライベートメソッドextractTitleが正常に動作すること', () => {
     const propertiesWithTitle = {
-      'タイトル': {
+      タイトル: {
         type: 'title',
-        title: [
-          { plain_text: 'テスト' },
-          { plain_text: '記事' },
-        ],
+        title: [{ plain_text: 'テスト' }, { plain_text: '記事' }],
       },
     };
     const propertiesWithoutTitle = {};
-    
+
     expect((fetcher as any).extractTitle(propertiesWithTitle)).toBe('テスト記事');
     expect((fetcher as any).extractTitle(propertiesWithoutTitle)).toBe('無題');
   });

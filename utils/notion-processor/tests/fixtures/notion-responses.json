@@ -1,0 +1,97 @@
+{
+  "samplePageResponse": {
+    "object": "page",
+    "id": "test-page-id-123",
+    "created_time": "2024-01-01T00:00:00.000Z",
+    "last_edited_time": "2024-01-02T00:00:00.000Z",
+    "properties": {
+      "title": {
+        "title": [
+          {
+            "text": {
+              "content": "テスト記事タイトル"
+            }
+          }
+        ]
+      },
+      "tags": {
+        "multi_select": [
+          {
+            "name": "typescript"
+          },
+          {
+            "name": "notion"
+          }
+        ]
+      },
+      "status": {
+        "select": {
+          "name": "published"
+        }
+      }
+    }
+  },
+  "sampleBlocksResponse": {
+    "results": [
+      {
+        "object": "block",
+        "id": "block-1",
+        "type": "heading_1",
+        "heading_1": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "見出し1"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "object": "block",
+        "id": "block-2",
+        "type": "paragraph",
+        "paragraph": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "これはテスト用の段落です。"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "object": "block",
+        "id": "block-3",
+        "type": "image",
+        "image": {
+          "type": "external",
+          "external": {
+            "url": "https://example.com/test-image.png"
+          }
+        }
+      }
+    ]
+  },
+  "errorResponses": {
+    "notFound": {
+      "object": "error",
+      "status": 404,
+      "code": "object_not_found",
+      "message": "記事の処理に失敗しました: ページブロックの取得が2回の試行後に失敗しました"
+    },
+    "unauthorized": {
+      "object": "error",
+      "status": 401,
+      "code": "unauthorized",
+      "message": "Unauthorized"
+    },
+    "rateLimited": {
+      "object": "error",
+      "status": 429,
+      "code": "rate_limited",
+      "message": "Rate limited"
+    }
+  }
+}

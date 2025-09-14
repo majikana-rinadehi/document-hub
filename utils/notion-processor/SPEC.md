@@ -1,1 +1,1 @@
-- eslint機能を追加、AirBnbベース、strictで
+- 実際のNotion取得機能を実施するためのテスト追加

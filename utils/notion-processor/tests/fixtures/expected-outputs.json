@@ -1,0 +1,78 @@
+{
+  "sampleProcessedArticle": {
+    "metadata": {
+      "id": "test-page-id-123",
+      "title": "テスト用ページ",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-02T00:00:00.000Z",
+      "properties": {
+        "title": {
+          "title": [
+            {
+              "text": {
+                "content": "テスト用ページ"
+              }
+            }
+          ]
+        },
+        "tags": {
+          "multi_select": [
+            {
+              "name": "typescript"
+            },
+            {
+              "name": "notion"
+            }
+          ]
+        },
+        "status": {
+          "select": {
+            "name": "published"
+          }
+        }
+      },
+      "tags": ["typescript", "notion"],
+      "status": "published"
+    },
+    "markdown": "\n# 見出し1\n\n\nこれはテスト用の段落です。\n\n\n![D0C5EA65-453F-45D3-97FC-96709C281850.png](/test-images/D0C5EA65-453F-45D3-97FC-96709C281850_0.png)\n\n",
+    "images": [
+      {
+        "originalUrl": "https://example.com/test-image.png",
+        "localPath": "./images/test-image.png",
+        "markdownPath": "./images/test-image.png",
+        "format": "png"
+      }
+    ],
+    "processedAt": "2024-01-02T10:00:00.000Z",
+    "processingTime": 1500
+  },
+  "batchProcessResult": {
+    "successful": [
+      {
+        "metadata": {
+          "id": "test-page-1",
+          "title": "記事1",
+          "createdAt": "2024-01-01T00:00:00.000Z",
+          "updatedAt": "2024-01-01T00:00:00.000Z",
+          "properties": {},
+          "tags": []
+        },
+        "markdown": "# 記事1\n\n内容1",
+        "images": [],
+        "processedAt": "2024-01-02T10:00:00.000Z"
+      }
+    ],
+    "failed": [
+      {
+        "articleId": "invalid-page-id",
+        "error": {
+          "name": "NotionProcessorError",
+          "message": "記事が見つかりません",
+          "code": "ARTICLE_NOT_FOUND"
+        }
+      }
+    ],
+    "totalProcessed": 2,
+    "totalTime": 3000
+  }
+}
