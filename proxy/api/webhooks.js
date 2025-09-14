@@ -26,13 +26,35 @@ export default async function handler(req, res) {
       auth: process.env.GITHUB_TOKEN,
     });
 
+    // NOTE: No more than 10 properties are allowed; 12 were supplied.
+    const clientPayload = { ...req.body };
+    // client_payloadのプロパティ数を10に制限
+    // 次は必ず含む: id, timestamp, data, type, entity, authors, integration_id, subscription_id, workspace_name, workspace_id
+    const allowedKeys = [
+      "id",
+      "timestamp",
+      "data",
+      "type",
+      "entity",
+      "authors",
+      "integration_id",
+      "subscription_id",
+      "workspace_name",
+      "workspace_id",
+    ];
+    Object.keys(clientPayload).forEach((key) => {
+      if (!allowedKeys.includes(key)) {
+        delete clientPayload[key];
+      }
+    });
+
     // repository_dispatch実行
     await octokit.rest.repos.createDispatchEvent({
       owner: process.env.GITHUB_OWNER,
       repo: process.env.GITHUB_REPO,
       event_type: "notion-article-updated",
       client_payload: {
-        ...req.body,
+        ...clientPayload,
       },
     });
 
