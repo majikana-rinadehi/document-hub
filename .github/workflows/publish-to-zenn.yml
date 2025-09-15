@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       article_id:
-        description: 'Article ID to publish'
+        description: "Article ID to publish"
         required: true
         type: string
 
@@ -15,18 +15,18 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      
+          node-version: "20"
+
       - name: Create branch for PR
         run: |
           git config --global user.name "github-actions[bot]"
@@ -34,44 +34,44 @@ jobs:
           BRANCH_NAME="publish-zenn-${{ github.event.inputs.article_id }}-$(date +%Y%m%d%H%M%S)"
           git checkout -b $BRANCH_NAME
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
-      
+
       - name: Copy article and process
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const path = require('path');
-            
+
             const articleId = '${{ github.event.inputs.article_id }}';
             const outputDir = 'output';
             const zennArticlesDir = 'articles';
             const zennImagesDir = 'images';
-            
+
             // Check if article exists
             const articlePath = path.join(outputDir, `${articleId}.md`);
             const metadataPath = path.join(outputDir, `${articleId}.json`);
-            
+
             if (!fs.existsSync(articlePath)) {
               throw new Error(`Article ${articleId}.md not found in output directory`);
             }
-            
+
             if (!fs.existsSync(metadataPath)) {
               throw new Error(`Metadata ${articleId}.json not found in output directory`);
             }
-            
+
             // Read metadata
             const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
             const title = metadata.title;
-            const status = metadata.properties?.Status?.name || 'Draft';
+            const status = metadata.properties?.Status?.status?.name || 'Draft';
             const published = status === 'Published' ? 'true' : 'false';
-            
+
             // Generate random positive emoji
             const emojis = ['🚀', '✨', '🎉', '🌟', '💡', '🔥', '⚡', '🎯', '🏆', '💪', '🌈', '☀️', '🌸', '🎨', '🎭', '🎪', '🎡', '🎢', '🎠'];
             const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-            
+
             // Read original content
             const originalContent = fs.readFileSync(articlePath, 'utf8');
-            
+
             // Create Zenn article with frontmatter
             const frontmatter = `---
             title: "${title}"
@@ -80,9 +80,9 @@ jobs:
             topics: []
             published: ${published}
             ---
-            
+
             `;
-            
+
             // Ensure directories exist
             if (!fs.existsSync(zennArticlesDir)) {
               fs.mkdirSync(zennArticlesDir, { recursive: true });
@@ -90,18 +90,18 @@ jobs:
             if (!fs.existsSync(zennImagesDir)) {
               fs.mkdirSync(zennImagesDir, { recursive: true });
             }
-            
+
             // Write article with frontmatter
             const zennArticlePath = path.join(zennArticlesDir, `${articleId}.md`);
             fs.writeFileSync(zennArticlePath, frontmatter + originalContent);
-            
+
             console.log(`✅ Article copied to ${zennArticlePath}`);
-            
+
             // Copy images referenced in the markdown
             const imageRegex = /!\[.*?\]\((.*?)\)/g;
             let match;
             const copiedImages = [];
-            
+
             while ((match = imageRegex.exec(originalContent)) !== null) {
               const imgPath = match[1];
               
@@ -129,7 +129,7 @@ jobs:
                 console.log(`✅ Copied image: ${imageName}`);
               }
             }
-            
+
             // Output summary
             console.log('\n📊 Summary:');
             console.log(`- Article ID: ${articleId}`);
@@ -138,20 +138,20 @@ jobs:
             console.log(`- Published: ${published}`);
             console.log(`- Emoji: ${randomEmoji}`);
             console.log(`- Images copied: ${copiedImages.length}`);
-      
+
       - name: Commit changes
         run: |
           git add articles/ images/
           git commit -m "feat: Publish article ${{ github.event.inputs.article_id }} to Zenn
-          
+
           - Article ID: ${{ github.event.inputs.article_id }}
           - Title: $(jq -r '.title' "output/${{ github.event.inputs.article_id }}.json")
           - Status: $(jq -r '.properties.Status.name' "output/${{ github.event.inputs.article_id }}.json")"
-      
+
       - name: Push branch
         run: |
           git push origin ${{ env.BRANCH_NAME }}
-      
+
       - name: Generate token
         id: generate_token
         uses: actions/create-github-app-token@v2
@@ -159,7 +159,7 @@ jobs:
           app-id: ${{ secrets.GH_APP_ID }}
           private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
-      
+
       - name: Create Pull Request
         uses: actions/github-script@v7
         env:
@@ -169,40 +169,40 @@ jobs:
             const { execSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
-            
+
             const articleId = '${{ github.event.inputs.article_id }}';
             const branchName = '${{ env.BRANCH_NAME }}';
-            
+
             // Read metadata for PR details
             const metadataPath = path.join('output', `${articleId}.json`);
             const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
             const title = metadata.title;
             const status = metadata.properties?.Status?.name || 'Draft';
-            
+
             // Create PR using gh CLI
             const prTitle = `📝 Publish to Zenn: ${title}`;
             const prBody = `## 📚 Article Publication to Zenn
-            
+
             ### Article Details
             - **ID**: \`${articleId}\`
             - **Title**: ${title}
             - **Status**: ${status}
             - **Target Platform**: Zenn
-            
+
             ### Changes
             - ✅ Copied article from \`output/${articleId}.md\` to \`articles/\`
             - ✅ Added Zenn frontmatter with metadata
             - ✅ Copied associated images (if any)
-            
+
             ### Review Checklist
             - [ ] Article content is correctly formatted
             - [ ] Frontmatter is properly configured
             - [ ] Images are correctly referenced and copied
             - [ ] Published status matches the intended state
-            
+
             ---
             *This PR was automatically generated by the Publish to Zenn workflow*`;
-            
+
             try {
               const result = execSync(`gh pr create --title "${prTitle}" --body "${prBody}" --base main --head ${branchName}`, {
                 encoding: 'utf8',
