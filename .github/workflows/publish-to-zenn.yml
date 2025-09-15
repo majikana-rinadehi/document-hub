@@ -1,10 +1,16 @@
 name: Publish to Zenn
 
 on:
+  workflow_call:
+    inputs:
+      entity-id:
+        required: true
+        type: string
+        description: The Notion entity ID to process
   workflow_dispatch:
     inputs:
-      article_id:
-        description: "Article ID to publish"
+      entity-id:
+        description: "Notion entity ID to process"
         required: true
         type: string
 
@@ -31,37 +37,61 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          BRANCH_NAME="publish-zenn-${{ github.event.inputs.article_id }}-$(date +%Y%m%d%H%M%S)"
+          BRANCH_NAME="publish-zenn-${{ inputs.entity-id }}-$(date +%Y%m%d%H%M%S)"
           git checkout -b $BRANCH_NAME
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
 
-      - name: Copy article and process
+      - name: Check platforms and copy article
+        id: check-platforms
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const path = require('path');
 
-            const articleId = '${{ github.event.inputs.article_id }}';
+            const entityId = '${{ inputs.entity-id }}';
             const outputDir = 'output';
             const zennArticlesDir = 'articles';
             const zennImagesDir = 'images';
 
-            // Check if article exists
-            const articlePath = path.join(outputDir, `${articleId}.md`);
-            const metadataPath = path.join(outputDir, `${articleId}.json`);
-
-            if (!fs.existsSync(articlePath)) {
-              throw new Error(`Article ${articleId}.md not found in output directory`);
-            }
+            // Check if metadata exists
+            const metadataPath = path.join(outputDir, `${entityId}.json`);
 
             if (!fs.existsSync(metadataPath)) {
-              throw new Error(`Metadata ${articleId}.json not found in output directory`);
+              console.log(`Metadata ${entityId}.json not found in output directory`);
+              console.log('✅ Workflow completed successfully (no metadata to process)');
+              core.setOutput('should-continue', 'false');
+              return;
             }
 
             // Read metadata
             const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
-            const title = metadata.title;
+
+            // Check if Zenn is in platforms - following the spec: metadata.properties.Platforms.multi_select[].name
+            const platforms = metadata.properties?.Platforms?.multi_select || [];
+            const hasZenn = platforms.some(p => p.name === 'Zenn');
+
+            if (!hasZenn) {
+              console.log('Zenn is not included in platforms metadata');
+              console.log('Platforms found:', platforms.map(p => p.name).join(', ') || 'none');
+              console.log('✅ Workflow completed successfully (Zenn not in platforms)');
+              core.setOutput('should-continue', 'false');
+              return;
+            }
+
+            console.log('✅ Zenn is included in platforms, processing article...');
+
+            // Check if article exists
+            const articlePath = path.join(outputDir, `${entityId}.md`);
+
+            if (!fs.existsSync(articlePath)) {
+              console.log(`Article ${entityId}.md not found in output directory`);
+              console.log('✅ Workflow completed successfully (no article to process)');
+              core.setOutput('should-continue', 'false');
+              return;
+            }
+
+            const title = metadata.title || metadata.properties?.Title?.title?.[0]?.plain_text || 'Untitled';
             const status = metadata.properties?.Status?.status?.name || 'Draft';
             const published = status === 'Published' ? 'true' : 'false';
 
@@ -92,7 +122,7 @@ jobs:
             }
 
             // Write article with frontmatter
-            const zennArticlePath = path.join(zennArticlesDir, `${articleId}.md`);
+            const zennArticlePath = path.join(zennArticlesDir, `${entityId}.md`);
             fs.writeFileSync(zennArticlePath, frontmatter + originalContent);
 
             console.log(`✅ Article copied to ${zennArticlePath}`);
@@ -132,27 +162,32 @@ jobs:
 
             // Output summary
             console.log('\n📊 Summary:');
-            console.log(`- Article ID: ${articleId}`);
+            console.log(`- Entity ID: ${entityId}`);
             console.log(`- Title: ${title}`);
             console.log(`- Status: ${status}`);
             console.log(`- Published: ${published}`);
             console.log(`- Emoji: ${randomEmoji}`);
             console.log(`- Images copied: ${copiedImages.length}`);
 
+            core.setOutput('should-continue', 'true');
+
       - name: Commit changes
+        if: steps.check-platforms.outputs.should-continue == 'true'
         run: |
           git add articles/ images/
           git commit -m "feat: Publish article ${{ github.event.inputs.article_id }} to Zenn
 
-          - Article ID: ${{ github.event.inputs.article_id }}
-          - Title: $(jq -r '.title' "output/${{ github.event.inputs.article_id }}.json")
-          - Status: $(jq -r '.properties.Status.name' "output/${{ github.event.inputs.article_id }}.json")"
+          - Article ID: ${{ inputs.entity-id }}
+          - Title: $(jq -r '.title // .properties.Title.title[0].plain_text // "Untitled"' "output/${{ inputs.entity-id }}.json")
+          - Status: $(jq -r '.properties.Status.status.name // "Draft"' "output/${{ inputs.entity-id }}.json")"
 
       - name: Push branch
+        if: steps.check-platforms.outputs.should-continue == 'true'
         run: |
           git push origin ${{ env.BRANCH_NAME }}
 
       - name: Generate token
+        if: steps.check-platforms.outputs.should-continue == 'true'
         id: generate_token
         uses: actions/create-github-app-token@v2
         with:
@@ -161,6 +196,7 @@ jobs:
           owner: ${{ github.repository_owner }}
 
       - name: Create Pull Request
+        if: steps.check-platforms.outputs.should-continue == 'true'
         uses: actions/github-script@v7
         env:
           GH_TOKEN: ${{ steps.generate_token.outputs.token }}
@@ -170,27 +206,27 @@ jobs:
             const fs = require('fs');
             const path = require('path');
 
-            const articleId = '${{ github.event.inputs.article_id }}';
+            const entityId = '${{ inputs.entity-id }}';
             const branchName = '${{ env.BRANCH_NAME }}';
 
             // Read metadata for PR details
-            const metadataPath = path.join('output', `${articleId}.json`);
+            const metadataPath = path.join('output', `${entityId}.json`);
             const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
-            const title = metadata.title;
-            const status = metadata.properties?.Status?.name || 'Draft';
+            const title = metadata.title || metadata.properties?.Title?.title?.[0]?.plain_text || 'Untitled';
+            const status = metadata.properties?.Status?.status?.name || 'Draft';
 
             // Create PR using gh CLI
             const prTitle = `📝 Publish to Zenn: ${title}`;
             const prBody = `## 📚 Article Publication to Zenn
 
             ### Article Details
-            - **ID**: \`${articleId}\`
+            - **ID**: \`${entityId}\`
             - **Title**: ${title}
             - **Status**: ${status}
             - **Target Platform**: Zenn
 
             ### Changes
-            - ✅ Copied article from \`output/${articleId}.md\` to \`articles/\`
+            - ✅ Copied article from \`output/${entityId}.md\` to \`blog-platforms/zenn/articles/\`
             - ✅ Added Zenn frontmatter with metadata
             - ✅ Copied associated images (if any)
 

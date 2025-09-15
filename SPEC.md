@@ -1,15 +1,9 @@
-記事をZenn/Qiita/Blogにもアップロードするために、output配下の指定のid記事を指定ディレクトリにコピー・指定ブランチへのPRを作成するActionsを新規作成
+.github/workflows/publish-to-zenn.yml
 
-### Publish to Zenn
+- Copy article and process
+  - metadata の playformsにZennが含まれていなければ、早期リターンし以降のActionsの処理を正常終了、ログ出力
+    `metadata.properties.Platforms.multi_select[].name
 
-- 指定したidの、output配下の記事.mdを articlesにコピー
-- コピーした.mdには下記フロントマターを追加 ※output配下に格納されている、そのidに対応する.jsonをmetadataとする
-  ```md
-  title: {metadata.title}
-  emoji: {ランダムな、ポジティブな絵文字}
-  type: "tech" # tech: 技術記事 / idea: アイデア
-  topics: []
-  published: {metadata.properties.Status.name === “Published”}
-  ```
-- もし.mdの中で画像ファイルが呼び出されていたら、それもimages にコピーする
-- これらの変更を新規ブランチでコミットし、mainブランチあてにPR作成する
+.github/workflows/notion-sync.yml
+
+- Create Pull Request の正常終了後、entityId を引数に .github/workflows/publish-to-zenn.yml を実行開始する
