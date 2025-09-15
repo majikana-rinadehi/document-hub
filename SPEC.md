@@ -1,16 +1,18 @@
 @.github/workflows/notion-sync.yml
 
-### Process Notion update
+### Create Pull Request ✅ COMPLETED
 
-下記追加、actions-scriptを使いjsで実装
+- ~~prBodyが想定通りではないので正しくフォーマット~~ ✅ 完了
+  - JavaScript template literalで実際の改行を使用するように修正
+  - `\n`エスケープシーケンスを削除し、実際の改行文字を使用
+  
+- ~~PRのテンプレートを用意しておいて、そこに埋め込まれている変数を置き換えて本文生成~~ ✅ 完了
+  - `.github/pr-template.md`にテンプレートファイルを作成
+  - `{{PAGE_ID}}`と`{{FILES_LIST}}`のプレースホルダーを使用
+  - ワークフロー内でテンプレートを読み込み、変数を置換して使用
 
-- github.event.client_payload.entity.id に、更新対象のページIDが入ってくる
-- github.event.client_payload.entity.type が pageであれば
-  - @package.json の fetch スクリプトを実行
-    - bun run fetch {ページID}
-
-### Create Update Article Pull Request
-
-新規ジョブとして追加、actions-scriptを使いjsで実装
-
-- output配下に、Process Notion update の出力結果が新しく追加されていれば、それらをフィーチャーブランチでコミット・PRを作成
+変更内容:
+1. PRテンプレートファイル (`.github/pr-template.md`) を作成
+2. ワークフローを修正してテンプレートを使用するように変更
+3. コミットメッセージのフォーマットも同様に修正（実際の改行を使用）
+4. "Generated with Claude Code"の記述を削除

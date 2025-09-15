@@ -119,17 +119,28 @@ jobs:
               // Get list of changed files for commit message
               const changedFiles = execSync('git diff --cached --name-only', { encoding: 'utf8' }).trim().split('\n').filter(f => f);
               
-              // Create commit message
-              const commitMessage = `feat: Update Notion article ${entityId}\\n\\nUpdated files:\\n${changedFiles.map(f => `- ${f}`).join('\\n')}\\n\\n🤖 Generated with [Claude Code](https://claude.ai/code)\\n\\nCo-Authored-By: Claude <noreply@anthropic.com>`;
+              // Create commit message parts
+              const commitTitle = `feat: Update Notion article ${entityId}`;
+              const commitBody = [
+                '',
+                'Updated files:',
+                ...changedFiles.map(f => `- ${f}`)
+              ].join('\n');
               
-              // Commit changes
-              execSync(`git commit -m "${commitMessage}"`);
+              // Commit changes using separate title and body
+              execSync(`git commit -m "${commitTitle}" -m "${commitBody}"`);
               
               // Push branch
               execSync(`git push origin ${branchName}`);
               
-              // Create pull request
-              const prBody = `## Summary\\n- Updated Notion article content for page ID: \`${entityId}\`\\n- Generated markdown and metadata files in output directory\\n\\n## Files Updated\\n${changedFiles.map(f => `- \`${f}\``).join('\\n')}\\n\\n## Test plan\\n- [ ] Verify markdown content is correctly formatted\\n- [ ] Check metadata includes all required fields\\n- [ ] Ensure images are properly processed and linked\\n\\n🤖 Generated with [Claude Code](https://claude.ai/code)`;
+              // Read PR template
+              const templatePath = '.github/pr-template.md';
+              const template = fs.readFileSync(templatePath, 'utf8');
+              
+              // Replace variables in the template
+              const prBody = template
+                .replace('{{PAGE_ID}}', entityId)
+                .replace('{{FILES_LIST}}', changedFiles.map(f => `- \`${f}\``).join('\n'));
               
               const { data: pr } = await github.rest.pulls.create({
                 owner: context.repo.owner,
