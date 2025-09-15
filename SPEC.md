@@ -2,7 +2,7 @@
 
 ### Publish to Zenn
 
-- 指定したidの、output配下の記事.mdを blog-platforms/zenn/articlesにコピー
+- 指定したidの、output配下の記事.mdを articlesにコピー
 - コピーした.mdには下記フロントマターを追加 ※output配下に格納されている、そのidに対応する.jsonをmetadataとする
   ```md
   title: {metadata.title}
@@ -11,5 +11,5 @@
   topics: []
   published: {metadata.properties.Status.name === “Published”}
   ```
-- もし.mdの中で画像ファイルが呼び出されていたら、それもblog-platforms/zenn/images にコピーする
+- もし.mdの中で画像ファイルが呼び出されていたら、それもimages にコピーする
 - これらの変更を新規ブランチでコミットし、mainブランチあてにPR作成する

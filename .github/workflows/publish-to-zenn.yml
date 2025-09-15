@@ -44,8 +44,8 @@ jobs:
             
             const articleId = '${{ github.event.inputs.article_id }}';
             const outputDir = 'output';
-            const zennArticlesDir = 'blog-platforms/zenn/articles';
-            const zennImagesDir = 'blog-platforms/zenn/images';
+            const zennArticlesDir = 'articles';
+            const zennImagesDir = 'images';
             
             // Check if article exists
             const articlePath = path.join(outputDir, `${articleId}.md`);
@@ -141,7 +141,7 @@ jobs:
       
       - name: Commit changes
         run: |
-          git add blog-platforms/zenn/
+          git add articles/ images/
           git commit -m "feat: Publish article ${{ github.event.inputs.article_id }} to Zenn
           
           - Article ID: ${{ github.event.inputs.article_id }}
@@ -190,7 +190,7 @@ jobs:
             - **Target Platform**: Zenn
             
             ### Changes
-            - ✅ Copied article from \`output/${articleId}.md\` to \`blog-platforms/zenn/articles/\`
+            - ✅ Copied article from \`output/${articleId}.md\` to \`articles/\`
             - ✅ Added Zenn frontmatter with metadata
             - ✅ Copied associated images (if any)
             
