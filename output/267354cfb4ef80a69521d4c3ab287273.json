@@ -2,31 +2,43 @@
   "id": "267354cfb4ef80a69521d4c3ab287273",
   "title": "テスト用ページ",
   "createdAt": "2025-09-07T12:25:00.000Z",
-  "updatedAt": "2025-09-07T12:49:00.000Z",
+  "updatedAt": "2025-09-15T06:02:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
       "type": "multi_select",
-      "multi_select": []
+      "multi_select": [
+        {
+          "id": "fa698b7b-3027-4d2a-8c15-a0fd8892c75b",
+          "name": "チュートリアル",
+          "color": "default"
+        }
+      ]
     },
-    "Slug": {
+    "Platforms": {
       "id": "M%3D%40%3A",
-      "type": "rich_text",
-      "rich_text": []
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "c70257b3-26b5-471c-b520-69a506df7fee",
+          "name": "Qiita",
+          "color": "green"
+        }
+      ]
     },
     "Status": {
       "id": "MDa%5E",
       "type": "status",
       "status": {
-        "id": "9d24f817-94e5-4365-9bca-e9ab8540cc8f",
-        "name": "WIP",
-        "color": "default"
+        "id": "2c507d24-1a11-4d1c-8161-8bfc7f5bef3b",
+        "name": "Published",
+        "color": "green"
       }
     },
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-09-07T12:49:00.000Z"
+      "last_edited_time": "2025-09-15T06:02:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -58,11 +70,11 @@
     }
   },
   "tags": [],
-  "processedAt": "2025-09-14T07:15:06.653Z",
-  "processingTime": 2717,
+  "processedAt": "2025-09-15T06:03:28.649Z",
+  "processingTime": 3065,
   "images": [
     {
-      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/2d6f5c50-589a-4514-8f9c-006985fbca2f/D0C5EA65-453F-45D3-97FC-96709C281850.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466SJLTRHMA%2F20250914%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250914T071505Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEN%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIC3X%2FSM2i32ooJVkSQd5V%2BbO7Xb%2Fl28yOpEg6iJ39FLOAiA38uIhqguKaEHu4dYvHETrU9IbVYK0GKplZinOrbjfXCr%2FAwhYEAAaDDYzNzQyMzE4MzgwNSIMDG0nu%2B%2F1od4j%2BDqEKtwDUAZOR2gIxVA6x17QrpAKL1W5e4BNPmXNmj0Fqx5tcepttWhLsdKXSuEIzmnmMeGONelMtCW0nvg32Wl9znmVxffkzAVoBJEAE%2FoJMSY5zHFLWvYCEqhcuyKNTuvnYT%2FlyLQzlG9HQcAgUqdmUmwQrLhVLNcbD%2BpXavmn9yCHV%2FHT8mBwgcponuQDZZDaGnZz2ktORscOk9rwG4f4a%2FSD9os6sExdq%2BhmqR31V%2F4mghumiO%2BRFs92RQSXfO0LiBEzvbVVc4ngdRTVaBbwZh6XUgN4au3JeeqmIf9hyQXsQSyIEjDcucgWo9MpL2bgn4%2Fb%2B6XH2tna%2BY6f%2BAYH96%2FO2P%2BpmvXPy2E2aO4JKqk6Uc2gaRVsFePX73g7NUoROgNH9A0NfGhLNsPypfLpxW0WCS%2FQs7cU4sjwUSrqlhIiWdNSoAAlANATL7GoVTslWcsiNgek8fAS%2FYZCm%2B6pavXzmWGv9jSGITthJy4WtG2sNQjO3SpZ69U6Vr0Z83kbwiJ0fiPfFFr%2Bex1q3oniak2DrC75hlGOFk3DBGBj5QUoKGGi2QSAy7pMR0Aeu2zAPIt4aU%2F%2Bvvu4g%2BxPuuMeclY58I8Q45mfu1Swof4SwUPtiXjJInt59nwH2rzId08wtsSZxgY6pgGtCBPaTRoJK4dbx9VYGw3os0VLYlTVed9VZhMAYuZJ0pJnZPXIMYpfFo2DZtVs1x3BC1lMIsK9DwJ8OcC%2FGSG3LH5t93%2Fq1ZybEcMckjKDx99yOWjCSFPiMrDvmJiv7AnAL0yRzrNgvmPlVJI0GNseJnxWZJZ6daCMEDFMVx4S%2F%2FdLBggjNj%2FoJiOaXwnZrgfZd549Zcad9PltXTtW1mRTZ5%2FkHVjb&X-Amz-Signature=16d1de393b21e393365d2999e956cd7a9b974b7e1e96540b025b1b40757fde87&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/2d6f5c50-589a-4514-8f9c-006985fbca2f/D0C5EA65-453F-45D3-97FC-96709C281850.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB46654LM3HW3%2F20250915%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20250915T060328Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEPD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJIMEYCIQDeI6daW%2Bkj%2Bcck6S2Ggbv3zD4IQZZcdxmx%2B9I3t6PhuwIhAKes4iMUf7fbHpphMX58cD%2B5vA1RTCRpap2uTGJaL5vJKv8DCGkQABoMNjM3NDIzMTgzODA1Igyi3ROMKjKe74cDPFMq3AMTwRQqNsDzfyM8zDXp%2FBt25G7LxVLa0jyPVgylxyy9aT0rvaMdM%2FvXHq6z8Owk%2Fy2vDzOQVXIUtPFymjk7GpAGsaVom1xm1GYKl27B0TtWW28kwD7wjIYU7e9sxtOHNEsUPdmzYb2rHVj2umw2PhVZGSYIPnWtEw7GYVK9ZPL3G%2FDrjqvDR7qEzentq%2BCcL4pLAFVmpnu1kwiKxN1K%2BYIVerTXPDcAo47zwumofQ7AlEXGCNWdvo5OihCadOym41vQUDBT5dPDvtd%2BlxYcMFEWD9YrGD5JB%2FdSK9PmKNS4oONLJu%2FegmDvbHQwmvUvUvlcPmKvzzYHqOv7NfBc0cBPWSsFDe93EJmSQMWz3TNc0hBaWPLEzqw5joBbvihiRSwK6rSWNJHu4kA3RxlimOcp%2FG9bjfT1pRKQPDE7JU5tA6eVJLg4zl7EkHkCJGbN%2BXXdla4L8X0BqIkY0by%2BYZGb9Q1XJWnLxqgn8pjOPbZkHSkRo8TtbgyWGwQUcsgpjALEWJg7e3kdZzNoM9TbtSl%2BoBBgGAnH%2F%2Ba8yQuJmQOVnSvO0LB6xma2YtSVYw9fOn3eX36Y1RqP%2FFS%2FQoVCxID1tJlPkq09jRqplqGKLHW%2B6XamzO4G%2F0CRES4MfDCYsp3GBjqkAcO%2FmtVUFXka0QAGzPd6vsHWfomG9JhH%2BRxg7k5h6%2Bniyi80CM94YruR0jItq06Se%2FALXYrrcc95kuuxLy7YMQuZdZyyBVFLTVR43ljuDzCGiOPKRTy2i0JgT%2FpCgfNhReMbiPWb40nmfIeqdjfDCcKOZ43Ioukr2oS0BFAgFLgvaclyntad4WP68WqcAUR6UYv0TXmWFJz6IHDqssZdlWIf8xWx&X-Amz-Signature=10c01db3724ba55217fe062d458b81887366b362a48621a0b3ce0fd9b51bfe64&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
       "localPath": "output/images/D0C5EA65-453F-45D3-97FC-96709C281850_0.png",
       "markdownPath": "/images/D0C5EA65-453F-45D3-97FC-96709C281850_0.png",
       "format": "png"
