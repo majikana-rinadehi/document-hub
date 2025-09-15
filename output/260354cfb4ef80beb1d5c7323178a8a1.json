@@ -1,0 +1,70 @@
+{
+  "id": "260354cfb4ef80beb1d5c7323178a8a1",
+  "title": "Serena MCP 導入メモ",
+  "createdAt": "2025-08-31T11:18:00.000Z",
+  "updatedAt": "2025-09-15T04:38:00.000Z",
+  "properties": {
+    "Tag": {
+      "id": "%3DMDD",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "fa698b7b-3027-4d2a-8c15-a0fd8892c75b",
+          "name": "チュートリアル",
+          "color": "default"
+        }
+      ]
+    },
+    "Slug": {
+      "id": "M%3D%40%3A",
+      "type": "rich_text",
+      "rich_text": []
+    },
+    "Status": {
+      "id": "MDa%5E",
+      "type": "status",
+      "status": {
+        "id": "Fsbc",
+        "name": "Preview",
+        "color": "blue"
+      }
+    },
+    "Last updated time": {
+      "id": "hVJW",
+      "type": "last_edited_time",
+      "last_edited_time": "2025-09-15T04:38:00.000Z"
+    },
+    "Created time": {
+      "id": "qAqV",
+      "type": "created_time",
+      "created_time": "2025-08-31T11:18:00.000Z"
+    },
+    "Title": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Serena MCP 導入メモ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Serena MCP 導入メモ",
+          "href": null
+        }
+      ]
+    }
+  },
+  "tags": [],
+  "processedAt": "2025-09-15T04:39:50.474Z",
+  "processingTime": 7633,
+  "images": []
+}
