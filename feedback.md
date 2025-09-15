@@ -1,0 +1,5 @@
+- Copy article and process
+  - github/actions-scriptを使用
+- Create Pull Request
+  - github/actions-scriptを使用
+  - 認証は.github/workflows/notion-sync.yml > Create Pull 同様に、事前に Generate token実施しそのトークンを使用

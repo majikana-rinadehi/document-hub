@@ -1,18 +1,15 @@
-@.github/workflows/notion-sync.yml
+記事をZenn/Qiita/Blogにもアップロードするために、output配下の指定のid記事を指定ディレクトリにコピー・指定ブランチへのPRを作成するActionsを新規作成
 
-### Create Pull Request ✅ COMPLETED
+### Publish to Zenn
 
-- ~~prBodyが想定通りではないので正しくフォーマット~~ ✅ 完了
-  - JavaScript template literalで実際の改行を使用するように修正
-  - `\n`エスケープシーケンスを削除し、実際の改行文字を使用
-  
-- ~~PRのテンプレートを用意しておいて、そこに埋め込まれている変数を置き換えて本文生成~~ ✅ 完了
-  - `.github/pr-template.md`にテンプレートファイルを作成
-  - `{{PAGE_ID}}`と`{{FILES_LIST}}`のプレースホルダーを使用
-  - ワークフロー内でテンプレートを読み込み、変数を置換して使用
-
-変更内容:
-1. PRテンプレートファイル (`.github/pr-template.md`) を作成
-2. ワークフローを修正してテンプレートを使用するように変更
-3. コミットメッセージのフォーマットも同様に修正（実際の改行を使用）
-4. "Generated with Claude Code"の記述を削除
+- 指定したidの、output配下の記事.mdを blog-platforms/zenn/articlesにコピー
+- コピーした.mdには下記フロントマターを追加 ※output配下に格納されている、そのidに対応する.jsonをmetadataとする
+  ```md
+  title: {metadata.title}
+  emoji: {ランダムな、ポジティブな絵文字}
+  type: "tech" # tech: 技術記事 / idea: アイデア
+  topics: []
+  published: {metadata.properties.Status.name === “Published”}
+  ```
+- もし.mdの中で画像ファイルが呼び出されていたら、それもblog-platforms/zenn/images にコピーする
+- これらの変更を新規ブランチでコミットし、mainブランチあてにPR作成する
