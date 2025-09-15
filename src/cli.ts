@@ -24,8 +24,7 @@ async function main() {
     process.exit(1);
   }
 
-  // Normalize article ID by removing dashes
-  const articleId = args[0].replace(/-/g, "");
+  const articleId = args[0];
 
   if (!process.env.NOTION_API_KEY) {
     console.error("NOTION_API_KEY environment variable is required");

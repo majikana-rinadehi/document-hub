@@ -41,7 +41,7 @@ jobs:
             const path = require('path');
 
             // Extract page ID and type from client payload
-            const entityId = context.payload.client_payload?.entity?.id;
+            const entityId = context.payload.client_payload?.entity?.id.replace(/-/g, "");
             const entityType = context.payload.client_payload?.entity?.type;
 
             console.log(`Entity ID: ${entityId}`);
@@ -102,7 +102,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
 
-            const entityId = context.payload.client_payload?.entity?.id;
+            const entityId = context.payload.client_payload?.entity?.id.replace(/-/g, "");
 
             // Create feature branch
             const branchName = `notion-update-${entityId}-${Date.now()}`;
