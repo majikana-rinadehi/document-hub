@@ -2,7 +2,7 @@
   "id": "259354cfb4ef80f4bbdfe5e94f37ef6a",
   "title": "Notionで書いた記事を Githubに連携 → Zenn/Qiita/個人ブログに自動投稿する",
   "createdAt": "2025-08-24T11:59:00.000Z",
-  "updatedAt": "2025-10-18T10:08:00.000Z",
+  "updatedAt": "2025-10-18T10:25:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -38,7 +38,7 @@
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-10-18T10:08:00.000Z"
+      "last_edited_time": "2025-10-18T10:25:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -70,7 +70,14 @@
     }
   },
   "tags": [],
-  "processedAt": "2025-10-18T10:09:43.666Z",
-  "processingTime": 12357,
-  "images": []
+  "processedAt": "2025-10-18T10:27:16.902Z",
+  "processingTime": 11804,
+  "images": [
+    {
+      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/43f2b271-40eb-4bf3-a329-c8f8dc67b8e4/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-10-18_19.16.20.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466SER3DT6X%2F20251018%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251018T102712Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEA8aCXVzLXdlc3QtMiJGMEQCIEQqHD4A24091Wg%2BuwCcXom6rtG2QkkzMAQgwhAbjdd0AiArbCF%2FDd4UawhexXHY8o%2FgtL%2FgFv1MlJermfHR8e7bBiqIBAi4%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDYzNzQyMzE4MzgwNSIMKVYP2VqF7Q159DZoKtwDSyUARl3pXpVqRn2sfe8N%2FqxIS9ktqsRqOyHtwOd0K%2BOWgxbmnjyAMzN%2Fgt6%2BbO0%2BKzNbBDqNpkQEL%2B%2Fj1cr57megwufXBsEXf3AVRqKSYGX1uMyFrcFAPRjHMLhRM%2BIDfuNj77jg5pJulKZdmANqaUn9GnSdvWYXzFUk3y9ppbmOBQQ3hfkpJBDqV9UcH9hYMXokr%2F%2F1tUSakQlQ%2FHyL6to9Ijy6uVotLjnUYZE2fPINh6MFgTjh5J%2BvWyNTn9leI1PRmUos%2BIL5T3Bhira2SKL2FnDNrThCb1RmfNdksgpJmkscRtXwb%2B%2Bh9OyjrIX9FxrCTy45xIfl9UjfWUt%2FE4ANcxsPUDlRGLZRWStPYf205coEiFLpP%2FRMkrgntQxUCq3dbdD%2BF4O3rhUEjvHAh9Dv%2FqgZY87NdbWHwdfcTl4EDhzg0R8Mv18GR9S9fAwQrMt4w97Hm1kS8yPo6gPMd3RfNMFB%2FHbVPTTxHeg0urB13ncLIdQw4h%2BK%2BNEUJac6W4TJ9LJjh6p6Z3tVpGaaAwiidiRFzx%2BdkBlPqVzPnxYoUAsFDQTuVdsyyaOZE3Og3hLgCwgZmh19f3BfK8D%2BYIcZKHw5DsUKJKlz9RxjReIZxLnel9UnpEs5cyAwyPvMxwY6pgHzIXn5TJMqe%2BqUi%2FmDNcsUeQKB%2Fg9lpJQ19Rx%2FHwktNZmV25E%2BLPfDjKBQDZ3P6OXvNIn7Ey0VZwvUgH4MQxDSU2PHznICkq2E43tpMbcEw2QYGLr4LBlvqZCN17fQbO%2BNOJXMueAlVRTMFf6lbt7uBWdgl1qOZywZ7JszCW7tl7NOSau9B%2BHcYOwZlTu6iB%2B%2FFtaPC56yvyC9TzjUvtGVIZCWhSVF&X-Amz-Signature=1aad33c743c2ecda64af7d6879fb6197e0d1026d39de4e4a409e29a0764a9b34&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "localPath": "output/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-10-18_19.16.20_0.png",
+      "markdownPath": "/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-10-18_19.16.20_0.png",
+      "format": "png"
+    }
+  ]
 }
