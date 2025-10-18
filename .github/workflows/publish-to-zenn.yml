@@ -33,10 +33,15 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Create branch for PR
+      - name: Fetch latest changes and create branch for PR
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          # Fetch latest changes from main
+          git fetch origin main
+          git checkout main
+          git pull origin main
+          # Create new branch from latest main
           BRANCH_NAME="publish-zenn-${{ inputs.entity-id }}-$(date +%Y%m%d%H%M%S)"
           git checkout -b $BRANCH_NAME
           echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
