@@ -2,7 +2,7 @@
   "id": "259354cfb4ef80f4bbdfe5e94f37ef6a",
   "title": "Notionで書いた記事を Githubに連携 → Zenn/Qiita/個人ブログに自動投稿する",
   "createdAt": "2025-08-24T11:59:00.000Z",
-  "updatedAt": "2025-10-18T09:41:00.000Z",
+  "updatedAt": "2025-10-18T09:55:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -30,15 +30,15 @@
       "id": "MDa%5E",
       "type": "status",
       "status": {
-        "id": "Fsbc",
-        "name": "Preview",
-        "color": "blue"
+        "id": "2c507d24-1a11-4d1c-8161-8bfc7f5bef3b",
+        "name": "Published",
+        "color": "green"
       }
     },
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-10-18T09:41:00.000Z"
+      "last_edited_time": "2025-10-18T09:55:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -70,7 +70,14 @@
     }
   },
   "tags": [],
-  "processedAt": "2025-10-18T09:43:24.844Z",
-  "processingTime": 17802,
-  "images": []
+  "processedAt": "2025-10-18T09:57:17.370Z",
+  "processingTime": 3123,
+  "images": [
+    {
+      "originalUrl": "https://video.kurashiru.com/production/articles/1dc56b3c-cde0-4dd9-9f81-1a9ee9ab25b6/wide_thumbnail_normal.jpg?1696301316",
+      "localPath": "output/images/wide_thumbnail_normal_0.jpg",
+      "markdownPath": "/images/wide_thumbnail_normal_0.jpg",
+      "format": "jpg"
+    }
+  ]
 }
