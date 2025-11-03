@@ -1,0 +1,76 @@
+{
+  "id": "290354cfb4ef80dcbd35e77369663304",
+  "title": "Claude Desktop から、Notion MCP (ローカル起動) 経由でNotionページにアクセスする",
+  "createdAt": "2025-10-18T05:03:00.000Z",
+  "updatedAt": "2025-11-03T11:56:00.000Z",
+  "properties": {
+    "Tag": {
+      "id": "%3DMDD",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "fa698b7b-3027-4d2a-8c15-a0fd8892c75b",
+          "name": "チュートリアル",
+          "color": "default"
+        }
+      ]
+    },
+    "Platforms": {
+      "id": "M%3D%40%3A",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "e2849eca-fdc6-4ab3-b3a4-e193a16ca394",
+          "name": "Zenn",
+          "color": "blue"
+        }
+      ]
+    },
+    "Status": {
+      "id": "MDa%5E",
+      "type": "status",
+      "status": {
+        "id": "2c507d24-1a11-4d1c-8161-8bfc7f5bef3b",
+        "name": "Published",
+        "color": "green"
+      }
+    },
+    "Last updated time": {
+      "id": "hVJW",
+      "type": "last_edited_time",
+      "last_edited_time": "2025-11-03T11:56:00.000Z"
+    },
+    "Created time": {
+      "id": "qAqV",
+      "type": "created_time",
+      "created_time": "2025-10-18T05:03:00.000Z"
+    },
+    "Title": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Claude Desktop から、Notion MCP (ローカル起動) 経由でNotionページにアクセスする",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Claude Desktop から、Notion MCP (ローカル起動) 経由でNotionページにアクセスする",
+          "href": null
+        }
+      ]
+    }
+  },
+  "tags": [],
+  "processedAt": "2025-11-03T11:56:56.397Z",
+  "processingTime": 6873,
+  "images": []
+}
