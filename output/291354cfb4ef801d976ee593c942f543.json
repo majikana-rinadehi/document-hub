@@ -2,7 +2,7 @@
   "id": "291354cfb4ef801d976ee593c942f543",
   "title": "Claude Code の Agent Skills って？",
   "createdAt": "2025-10-19T00:15:00.000Z",
-  "updatedAt": "2025-10-19T03:52:00.000Z",
+  "updatedAt": "2025-11-03T12:04:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -30,15 +30,15 @@
       "id": "MDa%5E",
       "type": "status",
       "status": {
-        "id": "Fsbc",
-        "name": "Preview",
-        "color": "blue"
+        "id": "2c507d24-1a11-4d1c-8161-8bfc7f5bef3b",
+        "name": "Published",
+        "color": "green"
       }
     },
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-10-19T03:52:00.000Z"
+      "last_edited_time": "2025-11-03T12:04:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -70,7 +70,7 @@
     }
   },
   "tags": [],
-  "processedAt": "2025-10-19T03:53:35.377Z",
-  "processingTime": 12195,
+  "processedAt": "2025-11-03T12:04:45.197Z",
+  "processingTime": 2688,
   "images": []
 }
