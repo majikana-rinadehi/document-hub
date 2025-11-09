@@ -1,0 +1,76 @@
+{
+  "id": "2a6354cfb4ef80b5a170c24271c3e05d",
+  "title": "Claude に自然なドキュメントを書かせる",
+  "createdAt": "2025-11-09T01:43:00.000Z",
+  "updatedAt": "2025-11-09T02:54:00.000Z",
+  "properties": {
+    "Tag": {
+      "id": "%3DMDD",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "_E_c",
+          "name": "問題解決",
+          "color": "green"
+        }
+      ]
+    },
+    "Platforms": {
+      "id": "M%3D%40%3A",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "e2849eca-fdc6-4ab3-b3a4-e193a16ca394",
+          "name": "Zenn",
+          "color": "blue"
+        }
+      ]
+    },
+    "Status": {
+      "id": "MDa%5E",
+      "type": "status",
+      "status": {
+        "id": "Fsbc",
+        "name": "Preview",
+        "color": "blue"
+      }
+    },
+    "Last updated time": {
+      "id": "hVJW",
+      "type": "last_edited_time",
+      "last_edited_time": "2025-11-09T02:54:00.000Z"
+    },
+    "Created time": {
+      "id": "qAqV",
+      "type": "created_time",
+      "created_time": "2025-11-09T01:43:00.000Z"
+    },
+    "Title": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Claude に自然なドキュメントを書かせる",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Claude に自然なドキュメントを書かせる",
+          "href": null
+        }
+      ]
+    }
+  },
+  "tags": [],
+  "processedAt": "2025-11-09T02:56:04.439Z",
+  "processingTime": 4554,
+  "images": []
+}
