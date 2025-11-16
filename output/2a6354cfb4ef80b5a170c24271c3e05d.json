@@ -2,7 +2,7 @@
   "id": "2a6354cfb4ef80b5a170c24271c3e05d",
   "title": "Claude に自然なドキュメントを書かせる",
   "createdAt": "2025-11-09T01:43:00.000Z",
-  "updatedAt": "2025-11-09T02:54:00.000Z",
+  "updatedAt": "2025-11-16T08:41:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -38,7 +38,7 @@
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-11-09T02:54:00.000Z"
+      "last_edited_time": "2025-11-16T08:41:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -70,7 +70,7 @@
     }
   },
   "tags": [],
-  "processedAt": "2025-11-09T02:56:04.439Z",
-  "processingTime": 4554,
+  "processedAt": "2025-11-16T08:43:21.521Z",
+  "processingTime": 3779,
   "images": []
 }
