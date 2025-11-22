@@ -1,8 +1,8 @@
 {
   "id": "260354cfb4ef80beb1d5c7323178a8a1",
-  "title": "Serena MCP 導入メモ",
+  "title": "Serena MCP × Claude Code 導入メモ",
   "createdAt": "2025-08-31T11:18:00.000Z",
-  "updatedAt": "2025-11-22T10:07:00.000Z",
+  "updatedAt": "2025-11-22T10:31:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -48,7 +48,7 @@
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-11-22T10:07:00.000Z"
+      "last_edited_time": "2025-11-22T10:31:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -62,7 +62,7 @@
         {
           "type": "text",
           "text": {
-            "content": "Serena MCP 導入メモ",
+            "content": "Serena MCP × Claude Code 導入メモ",
             "link": null
           },
           "annotations": {
@@ -73,14 +73,27 @@
             "code": false,
             "color": "default"
           },
-          "plain_text": "Serena MCP 導入メモ",
+          "plain_text": "Serena MCP × Claude Code 導入メモ",
           "href": null
         }
       ]
     }
   },
   "tags": [],
-  "processedAt": "2025-11-22T10:07:24.331Z",
-  "processingTime": 1270,
-  "images": []
+  "processedAt": "2025-11-22T10:31:49.298Z",
+  "processingTime": 1919,
+  "images": [
+    {
+      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/04d2f847-96e5-4adf-bbf9-86beff18ad05/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-11-22_19.24.55.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XY2RPA2Z%2F20251122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251122T103148Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFkaCXVzLXdlc3QtMiJIMEYCIQDUa35G48Ft6b8fALf35yUorQpENyw6dSRaRtGV%2BH52fgIhAK4ibrPKuNQ0Yr5K3Ix0xUcw47%2BxNGkMgQdGKKdL4YSoKv8DCCIQABoMNjM3NDIzMTgzODA1Igz7%2B8dJFRwF36J7KxUq3AOGMFSkQJquk8d9Uq%2FnBF7d0abfMS4bUhkh3juoXNPJm9B%2FZJavAfzLojIwMu5y0jmQ%2Bt3GRkK0Aw6GRGiiasbb%2B1WhNfM71BTOm61StzHJjLv3d2XKjNlP7L6zFBX4gDDqUTAGfo%2FTmw5ZqawTvZoVD0RZURIgD098v7Oi2KdWywwEktrJlIUh61KrA47%2FFXyijKrxFytdXSESvfqZPNF%2BPpmWyP8%2FYYv3mkYcfQ8j6%2BU7OIpgwPaSc3OB0hNxri5GIxOwH2PQIVfa0NjHNsBqBG9DwSb2YtejLu6Xhj%2FhVsNMCUia7xdZmZ4flR4CeHXVi9BGCgtPDEESJBMs8ijzP3ab%2Bj8FB9G5TiA2KT7z2U%2FhrQQaQyUAJGmfx5hro9vb%2B%2F7rItJSO8wy0%2Fdi4rq%2Bgoupejge9caiWNdLFuTekUco0CNo2YQJZgWlqOMaCBd78wzuQl60CQonJaaz7UyW4MstLe6EP784bV2MlFqe8xnR4SiyZQTKm2pQHmNdio4WQkH1RU3j385UtGLLQOetSP9jMK0rRVAReEHz5iQqewEHOky7GMYQPFToolsWl%2BiDN%2BThfuHNaBEIsFnSvMB%2FpyW%2FoU6K1Oh00cTEcLaPx%2BUu0mbXwp4H%2Bq8W2zDU8oXJBjqkAU6yr%2FnNajZRhyjeRqwv9gj48vHSM4r63tcSyBniSvbQBdmKwEkTyMr%2FqUK0dHLHUyeo5xqct1MzTdDkPPDa0QJ3T5yJdiRNUEAgW56t4xzk2UgvBiPuDQJQubNTZmX3mqfiNyUnCph3IlMP8XwwBal2EUXf6qLF9L2%2F4qcDNo1NgmOjJ%2BNV4OOSU0Ovgdw8c0XCjIA6GZduRFo6rDUEijJS5ZRm&X-Amz-Signature=422558c061719893b61476ec635a439564d9aab879735a2d41e497a5bf4efa71&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "localPath": "output/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-11-22_19.24.55_0.png",
+      "markdownPath": "/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-11-22_19.24.55_0.png",
+      "format": "png"
+    },
+    {
+      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/4198d36d-9361-463b-90ed-7d39aec01cfb/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-11-22_19.21.15.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466XY2RPA2Z%2F20251122%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20251122T103148Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFkaCXVzLXdlc3QtMiJIMEYCIQDUa35G48Ft6b8fALf35yUorQpENyw6dSRaRtGV%2BH52fgIhAK4ibrPKuNQ0Yr5K3Ix0xUcw47%2BxNGkMgQdGKKdL4YSoKv8DCCIQABoMNjM3NDIzMTgzODA1Igz7%2B8dJFRwF36J7KxUq3AOGMFSkQJquk8d9Uq%2FnBF7d0abfMS4bUhkh3juoXNPJm9B%2FZJavAfzLojIwMu5y0jmQ%2Bt3GRkK0Aw6GRGiiasbb%2B1WhNfM71BTOm61StzHJjLv3d2XKjNlP7L6zFBX4gDDqUTAGfo%2FTmw5ZqawTvZoVD0RZURIgD098v7Oi2KdWywwEktrJlIUh61KrA47%2FFXyijKrxFytdXSESvfqZPNF%2BPpmWyP8%2FYYv3mkYcfQ8j6%2BU7OIpgwPaSc3OB0hNxri5GIxOwH2PQIVfa0NjHNsBqBG9DwSb2YtejLu6Xhj%2FhVsNMCUia7xdZmZ4flR4CeHXVi9BGCgtPDEESJBMs8ijzP3ab%2Bj8FB9G5TiA2KT7z2U%2FhrQQaQyUAJGmfx5hro9vb%2B%2F7rItJSO8wy0%2Fdi4rq%2Bgoupejge9caiWNdLFuTekUco0CNo2YQJZgWlqOMaCBd78wzuQl60CQonJaaz7UyW4MstLe6EP784bV2MlFqe8xnR4SiyZQTKm2pQHmNdio4WQkH1RU3j385UtGLLQOetSP9jMK0rRVAReEHz5iQqewEHOky7GMYQPFToolsWl%2BiDN%2BThfuHNaBEIsFnSvMB%2FpyW%2FoU6K1Oh00cTEcLaPx%2BUu0mbXwp4H%2Bq8W2zDU8oXJBjqkAU6yr%2FnNajZRhyjeRqwv9gj48vHSM4r63tcSyBniSvbQBdmKwEkTyMr%2FqUK0dHLHUyeo5xqct1MzTdDkPPDa0QJ3T5yJdiRNUEAgW56t4xzk2UgvBiPuDQJQubNTZmX3mqfiNyUnCph3IlMP8XwwBal2EUXf6qLF9L2%2F4qcDNo1NgmOjJ%2BNV4OOSU0Ovgdw8c0XCjIA6GZduRFo6rDUEijJS5ZRm&X-Amz-Signature=aad57a41971680108e4864b5de94007bfcf3af68befacae12effb18383c57d1d&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "localPath": "output/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-11-22_19.21.15_1.png",
+      "markdownPath": "/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88_2025-11-22_19.21.15_1.png",
+      "format": "png"
+    }
+  ]
 }
