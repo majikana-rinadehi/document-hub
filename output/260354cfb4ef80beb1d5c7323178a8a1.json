@@ -1,0 +1,86 @@
+{
+  "id": "260354cfb4ef80beb1d5c7323178a8a1",
+  "title": "Serena MCP 導入メモ",
+  "createdAt": "2025-08-31T11:18:00.000Z",
+  "updatedAt": "2025-11-22T10:07:00.000Z",
+  "properties": {
+    "Tag": {
+      "id": "%3DMDD",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "fa698b7b-3027-4d2a-8c15-a0fd8892c75b",
+          "name": "チュートリアル",
+          "color": "default"
+        }
+      ]
+    },
+    "Platforms": {
+      "id": "M%3D%40%3A",
+      "type": "multi_select",
+      "multi_select": [
+        {
+          "id": "e2849eca-fdc6-4ab3-b3a4-e193a16ca394",
+          "name": "Zenn",
+          "color": "blue"
+        },
+        {
+          "id": "c70257b3-26b5-471c-b520-69a506df7fee",
+          "name": "Qiita",
+          "color": "green"
+        },
+        {
+          "id": "9f62861d-deb3-47f1-864c-3006a7c4f7e6",
+          "name": "Blog",
+          "color": "pink"
+        }
+      ]
+    },
+    "Status": {
+      "id": "MDa%5E",
+      "type": "status",
+      "status": {
+        "id": "Fsbc",
+        "name": "Preview",
+        "color": "blue"
+      }
+    },
+    "Last updated time": {
+      "id": "hVJW",
+      "type": "last_edited_time",
+      "last_edited_time": "2025-11-22T10:07:00.000Z"
+    },
+    "Created time": {
+      "id": "qAqV",
+      "type": "created_time",
+      "created_time": "2025-08-31T11:18:00.000Z"
+    },
+    "Title": {
+      "id": "title",
+      "type": "title",
+      "title": [
+        {
+          "type": "text",
+          "text": {
+            "content": "Serena MCP 導入メモ",
+            "link": null
+          },
+          "annotations": {
+            "bold": false,
+            "italic": false,
+            "strikethrough": false,
+            "underline": false,
+            "code": false,
+            "color": "default"
+          },
+          "plain_text": "Serena MCP 導入メモ",
+          "href": null
+        }
+      ]
+    }
+  },
+  "tags": [],
+  "processedAt": "2025-11-22T10:07:24.331Z",
+  "processingTime": 1270,
+  "images": []
+}
