@@ -2,7 +2,7 @@
   "id": "2a0354cfb4ef8025968cdca16c99ceef",
   "title": "Claude Skills / Agents / Commands の違い",
   "createdAt": "2025-11-03T06:46:00.000Z",
-  "updatedAt": "2025-12-27T05:28:00.000Z",
+  "updatedAt": "2025-12-27T05:31:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -24,15 +24,15 @@
       "id": "MDa%5E",
       "type": "status",
       "status": {
-        "id": "2c507d24-1a11-4d1c-8161-8bfc7f5bef3b",
-        "name": "Published",
-        "color": "green"
+        "id": "Fsbc",
+        "name": "Preview",
+        "color": "blue"
       }
     },
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-12-27T05:28:00.000Z"
+      "last_edited_time": "2025-12-27T05:31:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -64,8 +64,8 @@
     }
   },
   "tags": [],
-  "processedAt": "2025-12-27T05:29:27.680Z",
-  "processingTime": 3759,
+  "processedAt": "2025-12-27T05:32:45.544Z",
+  "processingTime": 1457,
   "images": [
     {
       "originalUrl": "https://substackcdn.com/image/fetch/$s_!OQJY!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Feae23383-c0c6-428d-9efa-efa27f399e0a_1127x518.png",
