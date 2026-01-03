@@ -100,9 +100,34 @@ jobs:
             const status = metadata.properties?.Status?.status?.name || 'Draft';
             const published = status === 'Published' ? 'true' : 'false';
 
+            // Check if existing Zenn article exists and extract emoji from frontmatter
+            const existingZennArticlePath = path.join(zennArticlesDir, `${entityId}.md`);
+            
+            // Extract emoji from existing article if it exists
+            const extractExistingEmoji = () => {
+              if (!fs.existsSync(existingZennArticlePath)) {
+                return null;
+              }
+              const existingContent = fs.readFileSync(existingZennArticlePath, 'utf8');
+              const emojiMatch = existingContent.match(/^---[\s\S]*?emoji:\s*"([^"]+)"[\s\S]*?---/);
+              return emojiMatch && emojiMatch[1] ? emojiMatch[1] : null;
+            };
+            
             // Generate random positive emoji
-            const emojis = ['🚀', '✨', '🎉', '🌟', '💡', '🔥', '⚡', '🎯', '🏆', '💪', '🌈', '☀️', '🌸', '🎨', '🎭', '🎪', '🎡', '🎢', '🎠'];
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            const generateRandomEmoji = () => {
+              const emojis = ['🚀', '✨', '🎉', '🌟', '💡', '🔥', '⚡', '🎯', '🏆', '💪', '🌈', '☀️', '🌸', '🎨', '🎭', '🎪', '🎡', '🎢', '🎠'];
+              return emojis[Math.floor(Math.random() * emojis.length)];
+            };
+            
+            // Use existing emoji if available, otherwise generate a new one
+            const existingEmoji = extractExistingEmoji();
+            const emoji = existingEmoji || generateRandomEmoji();
+            
+            if (existingEmoji) {
+              console.log(`✅ Found existing emoji: ${emoji}`);
+            } else {
+              console.log(`✅ Generated new emoji: ${emoji}`);
+            }
 
             // Read original content
             const originalContent = fs.readFileSync(articlePath, 'utf8');
@@ -110,7 +135,7 @@ jobs:
             // Create Zenn article with frontmatter
             const frontmatter = `---
             title: "${title}"
-            emoji: "${randomEmoji}"
+            emoji: "${emoji}"
             type: "tech"
             topics: []
             published: ${published}
@@ -171,7 +196,7 @@ jobs:
             console.log(`- Title: ${title}`);
             console.log(`- Status: ${status}`);
             console.log(`- Published: ${published}`);
-            console.log(`- Emoji: ${randomEmoji}`);
+            console.log(`- Emoji: ${emoji}`);
             console.log(`- Images copied: ${copiedImages.length}`);
 
             core.setOutput('should-continue', 'true');
