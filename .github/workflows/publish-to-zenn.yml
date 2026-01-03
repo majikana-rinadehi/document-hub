@@ -102,22 +102,30 @@ jobs:
 
             // Check if existing Zenn article exists and extract emoji from frontmatter
             const existingZennArticlePath = path.join(zennArticlesDir, `${entityId}.md`);
-            let emoji = null;
             
-            if (fs.existsSync(existingZennArticlePath)) {
-              // Read existing article to extract emoji from frontmatter
+            // Extract emoji from existing article if it exists
+            const extractExistingEmoji = () => {
+              if (!fs.existsSync(existingZennArticlePath)) {
+                return null;
+              }
               const existingContent = fs.readFileSync(existingZennArticlePath, 'utf8');
               const emojiMatch = existingContent.match(/^---[\s\S]*?emoji:\s*"([^"]+)"[\s\S]*?---/);
-              if (emojiMatch && emojiMatch[1]) {
-                emoji = emojiMatch[1];
-                console.log(`✅ Found existing emoji: ${emoji}`);
-              }
-            }
+              return emojiMatch && emojiMatch[1] ? emojiMatch[1] : null;
+            };
             
-            // Generate random positive emoji only if no existing emoji found
-            if (!emoji) {
+            // Generate random positive emoji
+            const generateRandomEmoji = () => {
               const emojis = ['🚀', '✨', '🎉', '🌟', '💡', '🔥', '⚡', '🎯', '🏆', '💪', '🌈', '☀️', '🌸', '🎨', '🎭', '🎪', '🎡', '🎢', '🎠'];
-              emoji = emojis[Math.floor(Math.random() * emojis.length)];
+              return emojis[Math.floor(Math.random() * emojis.length)];
+            };
+            
+            // Use existing emoji if available, otherwise generate a new one
+            const existingEmoji = extractExistingEmoji();
+            const emoji = existingEmoji || generateRandomEmoji();
+            
+            if (existingEmoji) {
+              console.log(`✅ Found existing emoji: ${emoji}`);
+            } else {
               console.log(`✅ Generated new emoji: ${emoji}`);
             }
 
