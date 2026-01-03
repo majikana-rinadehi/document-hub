@@ -100,9 +100,26 @@ jobs:
             const status = metadata.properties?.Status?.status?.name || 'Draft';
             const published = status === 'Published' ? 'true' : 'false';
 
-            // Generate random positive emoji
-            const emojis = ['🚀', '✨', '🎉', '🌟', '💡', '🔥', '⚡', '🎯', '🏆', '💪', '🌈', '☀️', '🌸', '🎨', '🎭', '🎪', '🎡', '🎢', '🎠'];
-            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            // Check if existing Zenn article exists and extract emoji from frontmatter
+            const existingZennArticlePath = path.join(zennArticlesDir, `${entityId}.md`);
+            let emoji = null;
+            
+            if (fs.existsSync(existingZennArticlePath)) {
+              // Read existing article to extract emoji from frontmatter
+              const existingContent = fs.readFileSync(existingZennArticlePath, 'utf8');
+              const emojiMatch = existingContent.match(/^---[\s\S]*?emoji:\s*"([^"]+)"[\s\S]*?---/);
+              if (emojiMatch && emojiMatch[1]) {
+                emoji = emojiMatch[1];
+                console.log(`✅ Found existing emoji: ${emoji}`);
+              }
+            }
+            
+            // Generate random positive emoji only if no existing emoji found
+            if (!emoji) {
+              const emojis = ['🚀', '✨', '🎉', '🌟', '💡', '🔥', '⚡', '🎯', '🏆', '💪', '🌈', '☀️', '🌸', '🎨', '🎭', '🎪', '🎡', '🎢', '🎠'];
+              emoji = emojis[Math.floor(Math.random() * emojis.length)];
+              console.log(`✅ Generated new emoji: ${emoji}`);
+            }
 
             // Read original content
             const originalContent = fs.readFileSync(articlePath, 'utf8');
@@ -110,7 +127,7 @@ jobs:
             // Create Zenn article with frontmatter
             const frontmatter = `---
             title: "${title}"
-            emoji: "${randomEmoji}"
+            emoji: "${emoji}"
             type: "tech"
             topics: []
             published: ${published}
@@ -171,7 +188,7 @@ jobs:
             console.log(`- Title: ${title}`);
             console.log(`- Status: ${status}`);
             console.log(`- Published: ${published}`);
-            console.log(`- Emoji: ${randomEmoji}`);
+            console.log(`- Emoji: ${emoji}`);
             console.log(`- Images copied: ${copiedImages.length}`);
 
             core.setOutput('should-continue', 'true');
