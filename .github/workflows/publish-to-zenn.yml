@@ -56,8 +56,8 @@ jobs:
 
             const entityId = '${{ inputs.entity-id }}';
             const outputDir = 'output';
-            const zennArticlesDir = 'blog-platforms/zenn/articles';
-            const zennImagesDir = 'blog-platforms/zenn/images';
+            const zennArticlesDir = 'articles';
+            const zennImagesDir = 'images';
 
             // Check if metadata exists
             const metadataPath = path.join(outputDir, `${entityId}.json`);
@@ -102,7 +102,7 @@ jobs:
 
             // Check if existing Zenn article exists and extract emoji from frontmatter
             const existingZennArticlePath = path.join(zennArticlesDir, `${entityId}.md`);
-            
+
             // Extract emoji from existing article if it exists
             const extractExistingEmoji = () => {
               if (!fs.existsSync(existingZennArticlePath)) {
@@ -112,17 +112,17 @@ jobs:
               const emojiMatch = existingContent.match(/^---[\s\S]*?emoji:\s*"([^"]+)"[\s\S]*?---/);
               return emojiMatch && emojiMatch[1] ? emojiMatch[1] : null;
             };
-            
+
             // Generate random positive emoji
             const generateRandomEmoji = () => {
               const emojis = ['🚀', '✨', '🎉', '🌟', '💡', '🔥', '⚡', '🎯', '🏆', '💪', '🌈', '☀️', '🌸', '🎨', '🎭', '🎪', '🎡', '🎢', '🎠'];
               return emojis[Math.floor(Math.random() * emojis.length)];
             };
-            
+
             // Use existing emoji if available, otherwise generate a new one
             const existingEmoji = extractExistingEmoji();
             const emoji = existingEmoji || generateRandomEmoji();
-            
+
             if (existingEmoji) {
               console.log(`✅ Found existing emoji: ${emoji}`);
             } else {
@@ -204,7 +204,7 @@ jobs:
       - name: Commit changes
         if: steps.check-platforms.outputs.should-continue == 'true'
         run: |
-          git add blog-platforms/zenn/articles/ blog-platforms/zenn/images/
+          git add articles/ images/
           git commit -m "feat: Publish article ${{ github.event.inputs.article_id }} to Zenn
 
           - Article ID: ${{ inputs.entity-id }}
@@ -260,7 +260,7 @@ jobs:
             - **Target Platform**: 📘 Zenn
 
             ### Changes
-            - ✅ Copied article from \`output/${entityId}.md\` to \`blog-platforms/zenn/articles/\`
+            - ✅ Copied article from \`output/${entityId}.md\` to \`articles/\`
             - ✅ Added Zenn frontmatter with metadata
             - ✅ Copied associated images (if any)
 
