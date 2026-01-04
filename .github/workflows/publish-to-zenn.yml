@@ -56,8 +56,8 @@ jobs:
 
             const entityId = '${{ inputs.entity-id }}';
             const outputDir = 'output';
-            const zennArticlesDir = 'articles';
-            const zennImagesDir = 'images';
+            const zennArticlesDir = 'blog-platforms/zenn/articles';
+            const zennImagesDir = 'blog-platforms/zenn/images';
 
             // Check if metadata exists
             const metadataPath = path.join(outputDir, `${entityId}.json`);
@@ -204,7 +204,7 @@ jobs:
       - name: Commit changes
         if: steps.check-platforms.outputs.should-continue == 'true'
         run: |
-          git add articles/ images/
+          git add blog-platforms/zenn/articles/ blog-platforms/zenn/images/
           git commit -m "feat: Publish article ${{ github.event.inputs.article_id }} to Zenn
 
           - Article ID: ${{ inputs.entity-id }}
