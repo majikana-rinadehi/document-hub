@@ -2,7 +2,7 @@
   "id": "2d9354cfb4ef80ea9ab3c974ba3a87ce",
   "title": "自動化を徹底したい",
   "createdAt": "2025-12-30T07:12:00.000Z",
-  "updatedAt": "2025-12-30T08:27:00.000Z",
+  "updatedAt": "2026-01-04T04:20:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -18,21 +18,27 @@
     "Platforms": {
       "id": "M%3D%40%3A",
       "type": "multi_select",
-      "multi_select": []
+      "multi_select": [
+        {
+          "id": "e2849eca-fdc6-4ab3-b3a4-e193a16ca394",
+          "name": "Zenn",
+          "color": "blue"
+        }
+      ]
     },
     "Status": {
       "id": "MDa%5E",
       "type": "status",
       "status": {
-        "id": "2c507d24-1a11-4d1c-8161-8bfc7f5bef3b",
-        "name": "Published",
-        "color": "green"
+        "id": "Fsbc",
+        "name": "Preview",
+        "color": "blue"
       }
     },
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2025-12-30T08:27:00.000Z"
+      "last_edited_time": "2026-01-04T04:20:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -64,7 +70,7 @@
     }
   },
   "tags": [],
-  "processedAt": "2025-12-30T08:28:50.402Z",
-  "processingTime": 5725,
+  "processedAt": "2026-01-04T04:22:06.199Z",
+  "processingTime": 4922,
   "images": []
 }
