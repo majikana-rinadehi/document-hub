@@ -21,7 +21,7 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          TEXT="${PR_BODY}"
+          TEXT=$'*PRがマージされたよ ✅*\n\n'"${PR_BODY}"
 
           payload=$(jq -n \
             --arg text "$TEXT" \

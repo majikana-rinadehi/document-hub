@@ -254,7 +254,7 @@ jobs:
             const prTitle = `📝 Publish to Zenn: ${title}`;
             const statusLabel = status === 'Published' ? '公開' : '下書き';
             const buildBody = (prUrl = '') => [
-              '*Zenn記事PRがマージされたよ ✅*',
+              '*Zenn記事PRです*',
               `*状態:* ${statusLabel}`,
               `*記事:* <https://zenn.dev/rudy/articles/${entityId}|${title}>`,
               prUrl ? `*PR:* <${prUrl}|${prTitle}>` : '*PR:* (作成中)',
