@@ -228,9 +228,12 @@ jobs:
       - name: Create Pull Request
         if: steps.check-platforms.outputs.should-continue == 'true'
         uses: actions/github-script@v7
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         with:
           github-token: ${{ steps.generate_token.outputs.token }}
           script: |
+            const { execFileSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
 
@@ -284,23 +287,23 @@ jobs:
               console.log(`✅ Pull request created successfully: #${pr.number}`);
 
               if (status === 'Preview') {
-                console.log('👀 Status is Preview. Enabling auto-merge...');
-                await github.graphql(
-                  `
-                    mutation EnableAutoMerge($pullRequestId: ID!, $mergeMethod: PullRequestMergeMethod!) {
-                      enablePullRequestAutoMerge(input: { pullRequestId: $pullRequestId, mergeMethod: $mergeMethod }) {
-                        pullRequest {
-                          number
-                        }
-                      }
-                    }
-                  `,
-                  {
-                    pullRequestId: pr.node_id,
-                    mergeMethod: 'SQUASH',
-                  }
-                );
-                console.log('✅ Auto-merge enabled (squash).');
+                try {
+                  console.log('👀 Status is Preview. Merging via gh with admin...');
+                  const result = execFileSync('gh', [
+                    'pr', 'merge',
+                    '--admin',
+                    '--merge',
+                    String(pr.number),
+                  ], {
+                    encoding: 'utf8',
+                    env: { ...process.env, GH_TOKEN: process.env.GH_TOKEN }
+                  });
+                  console.log('✅ Pull request merged (admin merge).');
+                  console.log(result);
+                } catch (mergeError) {
+                  console.warn('⚠️ Admin merge via gh failed.');
+                  console.warn(mergeError.message);
+                }
               }
             } catch (error) {
               console.error('Failed to create PR:', error.message);
