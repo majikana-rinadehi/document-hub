@@ -16,37 +16,18 @@ jobs:
       startsWith(github.event.pull_request.head.ref, 'publish-zenn-'))
     runs-on: ubuntu-latest
     steps:
-      - name: Extract article id
-        id: extract
-        env:
-          HEAD_REF: ${{ github.event.pull_request.head.ref }}
-        run: |
-          if [[ "$HEAD_REF" =~ ^publish-zenn-(.*)-[0-9]{14}$ ]]; then
-            echo "article_id=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
-          else
-            echo "article_id=" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Post to Slack
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-          MERGED_BY: ${{ github.event.pull_request.merged_by.login }}
-          ARTICLE_ID: ${{ steps.extract.outputs.article_id }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
-          if [[ -n "$ARTICLE_ID" ]]; then
-            ARTICLE_LINE="Article ID: ${ARTICLE_ID}\n"
-          else
-            ARTICLE_LINE=""
-          fi
+          TEXT=$'*PRがマージされたよ ✅*\n\n'"${PR_BODY}"
 
           payload=$(jq -n \
-            --arg text "Zenn PR merged ✅\n${PR_TITLE}\n${PR_URL}\nMerged by: ${MERGED_BY}\n${ARTICLE_LINE}" \
+            --arg text "$TEXT" \
             '{text: $text}')
 
           curl -sS -X POST \
             -H 'Content-type: application/json' \
             --data "$payload" \
             "$SLACK_WEBHOOK_URL"
-
