@@ -228,9 +228,12 @@ jobs:
       - name: Create Pull Request
         if: steps.check-platforms.outputs.should-continue == 'true'
         uses: actions/github-script@v7
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         with:
           github-token: ${{ steps.generate_token.outputs.token }}
           script: |
+            const { execFileSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
 
@@ -284,59 +287,22 @@ jobs:
               console.log(`✅ Pull request created successfully: #${pr.number}`);
 
               if (status === 'Preview') {
-                console.log('👀 Status is Preview. Preparing auto-merge...');
-
-                const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-                let mergeable = null;
-                let mergeableState = null;
-
-                for (let i = 0; i < 10; i += 1) {
-                  const { data } = await github.rest.pulls.get({
-                    owner,
-                    repo,
-                    pull_number: pr.number,
-                  });
-                  mergeable = data.mergeable;
-                  mergeableState = data.mergeable_state;
-
-                  if (mergeable !== null && mergeableState !== 'unknown') {
-                    break;
-                  }
-                  await sleep(3000);
-                }
-
                 try {
-                  await github.graphql(
-                    `
-                      mutation EnableAutoMerge($pullRequestId: ID!, $mergeMethod: PullRequestMergeMethod!) {
-                        enablePullRequestAutoMerge(input: { pullRequestId: $pullRequestId, mergeMethod: $mergeMethod }) {
-                          pullRequest {
-                            number
-                          }
-                        }
-                      }
-                    `,
-                    {
-                      pullRequestId: pr.node_id,
-                      mergeMethod: 'SQUASH',
-                    }
-                  );
-                  console.log('✅ Auto-merge enabled (squash).');
+                  console.log('👀 Status is Preview. Merging via gh with admin...');
+                  const result = execFileSync('gh', [
+                    'pr', 'merge',
+                    '--admin',
+                    '--merge',
+                    String(pr.number),
+                  ], {
+                    encoding: 'utf8',
+                    env: { ...process.env, GH_TOKEN: process.env.GH_TOKEN }
+                  });
+                  console.log('✅ Pull request merged (admin merge).');
+                  console.log(result);
                 } catch (mergeError) {
-                  console.warn('⚠️ Auto-merge failed. Trying direct merge if possible...');
+                  console.warn('⚠️ Admin merge via gh failed.');
                   console.warn(mergeError.message);
-
-                  if (mergeable === true) {
-                    await github.rest.pulls.merge({
-                      owner,
-                      repo,
-                      pull_number: pr.number,
-                      merge_method: 'squash',
-                    });
-                    console.log('✅ Pull request merged directly (squash).');
-                  } else {
-                    console.warn(`⚠️ PR not mergeable yet. mergeable=${mergeable}, state=${mergeableState}`);
-                  }
                 }
               }
             } catch (error) {
