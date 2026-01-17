@@ -2,7 +2,7 @@
   "id": "2e3354cfb4ef80c0a26ff6e8f0a451fa",
   "title": "BuriKaigi 2026@富山に行ってきました!",
   "createdAt": "2026-01-09T23:20:00.000Z",
-  "updatedAt": "2026-01-17T03:21:00.000Z",
+  "updatedAt": "2026-01-17T03:29:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -18,7 +18,13 @@
     "Platforms": {
       "id": "M%3D%40%3A",
       "type": "multi_select",
-      "multi_select": []
+      "multi_select": [
+        {
+          "id": "e2849eca-fdc6-4ab3-b3a4-e193a16ca394",
+          "name": "Zenn",
+          "color": "blue"
+        }
+      ]
     },
     "Status": {
       "id": "MDa%5E",
@@ -32,7 +38,7 @@
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2026-01-17T03:21:00.000Z"
+      "last_edited_time": "2026-01-17T03:29:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -81,17 +87,17 @@
     }
   },
   "tags": [],
-  "processedAt": "2026-01-17T03:22:47.302Z",
-  "processingTime": 3113,
+  "processedAt": "2026-01-17T03:30:16.941Z",
+  "processingTime": 2163,
   "images": [
     {
-      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/b3361a9f-50d4-4a69-86a5-63c66c0eeb90/%E6%9C%80%E6%96%B0%E3%81%AE%E5%86%99%E7%9C%9F%E3%82%92%E8%A1%A8%E7%A4%BA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466VA2Q2F3X%2F20260117%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260117T032246Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDTarek55X%2FIOvKY84tnch7P0%2Bct9rO%2BlYWhZFekwhuhAiBSEzDsLV0yCL32ohZcIbSJIbEUIyfDPuF9QAr0WAsMjSr%2FAwhcEAAaDDYzNzQyMzE4MzgwNSIMDLRoioOfyIUvDYTDKtwDPXuQ5%2BCeS1QHWxmlmHdtivPr%2Fx0tMC%2BeTpMa1McOyrDKZ4bsWNX4BfJoR7XrJNtxqfZHWaqapm%2BK4re9aOzpV4a5AAFm5CHKYowD%2FGn0Z%2FTIdFG2CHL6hYP1GEXP%2F9UdhIPvzXD2QfditvEL2n3JA%2Bop%2BqdLC2bB15%2Bt8IcegjqEtMKyfZ%2BBNudEwSd4336dw5tZDsLIqM6%2BSMoye8ZM7f0lAHQgI4EoUXq9u3kcRy33uc%2Bm4R7ZqZmIsxb7i6mQWBi9%2BeRKbwm747enysGCnpa849YuIZMzQqkuLAJ0C1eYk8q3W54%2Bhcvt795orxT55mcRbsV48UIcdcQD3cZ3MzsmFAT75sEKL4BscRGr5pfVo9dNstrZCBF1zW72q8Ta4XZ2HKgvd%2FzSMtyOlAgF%2BV11D5MvpL2URjh615QjfPZk4Q%2BMTFI69Yd3EEtcvkMdQoHQUie4fKLaappyNCCWlnjgHdsMIAD3b7Ij5hkFnE8YYcF6ZK8WmLk7Obg15DyJaG0tas8EFaWC11PPatwX2gJ%2FWp%2BiWzApGADf19V5o%2FdfRB3YL86JFkvnGiU7q9gj6BpylI%2Bd6CKeAclQRj2KQUNlFuKT21chrTgaE2YuFDBLADHxN3%2BeLaGIbHAw2%2FSrywY6pgEUrJYaHLOnFa7YLs2mSvDY9J4odTRXEhDvMR7lRX%2BWB3lcnjcYaNsQV4bcnDe1MHyBiiYTvohTXrcBBmYX6BmsWBUaq0OdrMxDa93RsYX6d4gsdEiJ0I9I1g5J7YK9h7n5ZKbah0nz67ZBCzGShrcVtrayyvZPG5d1q6hcb1RRNQxB1MLNeUT9FXKZa8vsgA6dyzR56UuTI6mS0i11GZFQyUTyZJyQ&X-Amz-Signature=9345898ac11664393f0e61142656431d7c0c7855474e37a70e809e9a0fbcd031&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/b3361a9f-50d4-4a69-86a5-63c66c0eeb90/%E6%9C%80%E6%96%B0%E3%81%AE%E5%86%99%E7%9C%9F%E3%82%92%E8%A1%A8%E7%A4%BA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UGVRXKGH%2F20260117%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260117T033015Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIHWMbsO6b2oZ8j%2FROoHxTXAfOXL5JVQ%2BozkbVjxMt86eAiEA6JBGmA0iUYnJkzVTTlqVy1bgawjYmqvU8MgUQWjtE%2FUq%2FwMIXBAAGgw2Mzc0MjMxODM4MDUiDFoYJ1ICn9Izo6y3qyrcA6NFhuWIChSPDzg1vL9vFc5LW0Y49wUsJ2Emy%2F0fmDvePm8SXNZ9n6scyyRvF5ZIL9Ak679DoBg484CMFuiC%2Fb9cFV0QJuyn44A3Is1J95CNKnYRXk2bYYjQ7oqaWxLZg6DaIwMBEn%2BXIGFrr7J3fjk3PtkYcW%2FRbRIyR4%2Fo0LBvtMvYAplT80TYqQcjhJ8anhZnA1hQVi2EaKzLsijcfoziGDEM95vTdqlnEE88gfz9x9RuDmsSSY8omCpqYZ0QYCoQl0sg0RDvfzOd0sAMg77ezqFrepI78SJ1TF7ZEFhXPeSpi%2FC6gwB1RkmGooAhqjYE%2FkLGHFUYnMjaoOr4orfvbyM4vbi%2Bd0djTCnRsYx6eagNaBh1fdH1cNVJeRMHxvjYT%2B4WKN51Y%2BEiZt%2B9vLRbmvKNJzQ5EVo1rucgin5lG3lKiMAolSFonIQ99vjhxpfqxqMFUZI%2BZivA%2BMAQGpHJylbwwX8Y3Mla47vMg8w7GHD8t5mSPxaA31wQAnNZuWfymsqqHA3mlG3l7YEMMyQuUumkPem%2FAJDq3rbhkzzXtqDBHJxIZcejmu%2FoaX1JQ71GLL6aLP8hf%2Fc5XtlpWkzwDYC%2Fr%2Bshlc4lOgUYH6VrvoQve3mzJzSy7ljsMMr0q8sGOqUBjuCBWqeyuKZYFJ0DxwCefx9ggXfmoHzh3F38%2FYaH8mft5gspel%2Fdr47RYquiPU7IZlH2iGYvJRZUTMArlVdXapgPnTIkpdVJT%2F5eh3KfrJQ36JrmJY%2BQLTNpXr%2FXUCC3wVHXpKARqVlQVCJeL1CZLoFJCEuCC7AQJnhD%2FvbVCiTpYNX%2BH1baaxG%2B764U%2F3PNmDdiH9hpsPDe8bJSqAIz%2B912BsTN&X-Amz-Signature=850eed9885e6682036971a93f16013deb47e5f92ee7d04b85533152a3bfb058b&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
       "localPath": "output/images/%E6%9C%80%E6%96%B0%E3%81%AE%E5%86%99%E7%9C%9F%E3%82%92%E8%A1%A8%E7%A4%BA_0.png",
       "markdownPath": "/images/%E6%9C%80%E6%96%B0%E3%81%AE%E5%86%99%E7%9C%9F%E3%82%92%E8%A1%A8%E7%A4%BA_0.png",
       "format": "png"
     },
     {
-      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/762db707-8033-4ab2-9424-230b3acd3c18/IMG_6141.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466VA2Q2F3X%2F20260117%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260117T032246Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIDTarek55X%2FIOvKY84tnch7P0%2Bct9rO%2BlYWhZFekwhuhAiBSEzDsLV0yCL32ohZcIbSJIbEUIyfDPuF9QAr0WAsMjSr%2FAwhcEAAaDDYzNzQyMzE4MzgwNSIMDLRoioOfyIUvDYTDKtwDPXuQ5%2BCeS1QHWxmlmHdtivPr%2Fx0tMC%2BeTpMa1McOyrDKZ4bsWNX4BfJoR7XrJNtxqfZHWaqapm%2BK4re9aOzpV4a5AAFm5CHKYowD%2FGn0Z%2FTIdFG2CHL6hYP1GEXP%2F9UdhIPvzXD2QfditvEL2n3JA%2Bop%2BqdLC2bB15%2Bt8IcegjqEtMKyfZ%2BBNudEwSd4336dw5tZDsLIqM6%2BSMoye8ZM7f0lAHQgI4EoUXq9u3kcRy33uc%2Bm4R7ZqZmIsxb7i6mQWBi9%2BeRKbwm747enysGCnpa849YuIZMzQqkuLAJ0C1eYk8q3W54%2Bhcvt795orxT55mcRbsV48UIcdcQD3cZ3MzsmFAT75sEKL4BscRGr5pfVo9dNstrZCBF1zW72q8Ta4XZ2HKgvd%2FzSMtyOlAgF%2BV11D5MvpL2URjh615QjfPZk4Q%2BMTFI69Yd3EEtcvkMdQoHQUie4fKLaappyNCCWlnjgHdsMIAD3b7Ij5hkFnE8YYcF6ZK8WmLk7Obg15DyJaG0tas8EFaWC11PPatwX2gJ%2FWp%2BiWzApGADf19V5o%2FdfRB3YL86JFkvnGiU7q9gj6BpylI%2Bd6CKeAclQRj2KQUNlFuKT21chrTgaE2YuFDBLADHxN3%2BeLaGIbHAw2%2FSrywY6pgEUrJYaHLOnFa7YLs2mSvDY9J4odTRXEhDvMR7lRX%2BWB3lcnjcYaNsQV4bcnDe1MHyBiiYTvohTXrcBBmYX6BmsWBUaq0OdrMxDa93RsYX6d4gsdEiJ0I9I1g5J7YK9h7n5ZKbah0nz67ZBCzGShrcVtrayyvZPG5d1q6hcb1RRNQxB1MLNeUT9FXKZa8vsgA6dyzR56UuTI6mS0i11GZFQyUTyZJyQ&X-Amz-Signature=bdc3814ff317fb016480ba491272157935fdce5a323e47ad3fbd821ad9558b30&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/762db707-8033-4ab2-9424-230b3acd3c18/IMG_6141.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466UGVRXKGH%2F20260117%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260117T033016Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEJP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJHMEUCIHWMbsO6b2oZ8j%2FROoHxTXAfOXL5JVQ%2BozkbVjxMt86eAiEA6JBGmA0iUYnJkzVTTlqVy1bgawjYmqvU8MgUQWjtE%2FUq%2FwMIXBAAGgw2Mzc0MjMxODM4MDUiDFoYJ1ICn9Izo6y3qyrcA6NFhuWIChSPDzg1vL9vFc5LW0Y49wUsJ2Emy%2F0fmDvePm8SXNZ9n6scyyRvF5ZIL9Ak679DoBg484CMFuiC%2Fb9cFV0QJuyn44A3Is1J95CNKnYRXk2bYYjQ7oqaWxLZg6DaIwMBEn%2BXIGFrr7J3fjk3PtkYcW%2FRbRIyR4%2Fo0LBvtMvYAplT80TYqQcjhJ8anhZnA1hQVi2EaKzLsijcfoziGDEM95vTdqlnEE88gfz9x9RuDmsSSY8omCpqYZ0QYCoQl0sg0RDvfzOd0sAMg77ezqFrepI78SJ1TF7ZEFhXPeSpi%2FC6gwB1RkmGooAhqjYE%2FkLGHFUYnMjaoOr4orfvbyM4vbi%2Bd0djTCnRsYx6eagNaBh1fdH1cNVJeRMHxvjYT%2B4WKN51Y%2BEiZt%2B9vLRbmvKNJzQ5EVo1rucgin5lG3lKiMAolSFonIQ99vjhxpfqxqMFUZI%2BZivA%2BMAQGpHJylbwwX8Y3Mla47vMg8w7GHD8t5mSPxaA31wQAnNZuWfymsqqHA3mlG3l7YEMMyQuUumkPem%2FAJDq3rbhkzzXtqDBHJxIZcejmu%2FoaX1JQ71GLL6aLP8hf%2Fc5XtlpWkzwDYC%2Fr%2Bshlc4lOgUYH6VrvoQve3mzJzSy7ljsMMr0q8sGOqUBjuCBWqeyuKZYFJ0DxwCefx9ggXfmoHzh3F38%2FYaH8mft5gspel%2Fdr47RYquiPU7IZlH2iGYvJRZUTMArlVdXapgPnTIkpdVJT%2F5eh3KfrJQ36JrmJY%2BQLTNpXr%2FXUCC3wVHXpKARqVlQVCJeL1CZLoFJCEuCC7AQJnhD%2FvbVCiTpYNX%2BH1baaxG%2B764U%2F3PNmDdiH9hpsPDe8bJSqAIz%2B912BsTN&X-Amz-Signature=472d0399fcee666f159d1f8bc3f415cced56ee1662259b33f4436d395831ec69&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
       "localPath": "output/images/IMG_6141_1.jpg",
       "markdownPath": "/images/IMG_6141_1.jpg",
       "format": "jpg"
