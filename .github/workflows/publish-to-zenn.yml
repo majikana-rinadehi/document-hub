@@ -228,11 +228,9 @@ jobs:
       - name: Create Pull Request
         if: steps.check-platforms.outputs.should-continue == 'true'
         uses: actions/github-script@v7
-        env:
-          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
         with:
+          github-token: ${{ steps.generate_token.outputs.token }}
           script: |
-            const { execFileSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
 
@@ -273,19 +271,37 @@ jobs:
             ].join('\n');
 
             try {
-              const result = execFileSync('gh', [
-                'pr', 'create',
-                '--title', prTitle,
-                '--body', prBody,
-                '--base', 'main',
-                '--head', branchName,
-              ], {
-                encoding: 'utf8',
-                env: { ...process.env, GH_TOKEN: process.env.GH_TOKEN }
+              const { owner, repo } = context.repo;
+              const { data: pr } = await github.rest.pulls.create({
+                owner,
+                repo,
+                title: prTitle,
+                body: prBody,
+                base: 'main',
+                head: branchName,
               });
-              
-              console.log('✅ Pull request created successfully');
-              console.log(result);
+
+              console.log(`✅ Pull request created successfully: #${pr.number}`);
+
+              if (status === 'Preview') {
+                console.log('👀 Status is Preview. Enabling auto-merge...');
+                await github.graphql(
+                  `
+                    mutation EnableAutoMerge($pullRequestId: ID!, $mergeMethod: PullRequestMergeMethod!) {
+                      enablePullRequestAutoMerge(input: { pullRequestId: $pullRequestId, mergeMethod: $mergeMethod }) {
+                        pullRequest {
+                          number
+                        }
+                      }
+                    }
+                  `,
+                  {
+                    pullRequestId: pr.node_id,
+                    mergeMethod: 'SQUASH',
+                  }
+                );
+                console.log('✅ Auto-merge enabled (squash).');
+              }
             } catch (error) {
               console.error('Failed to create PR:', error.message);
               throw error;
