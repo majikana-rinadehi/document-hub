@@ -2,7 +2,7 @@
   "id": "2f3354cfb4ef801a8ea9d2a948bcb43a",
   "title": "一旦自分のことを振り返ってみた",
   "createdAt": "2026-01-25T01:25:00.000Z",
-  "updatedAt": "2026-01-25T04:17:00.000Z",
+  "updatedAt": "2026-01-25T04:35:00.000Z",
   "properties": {
     "Tag": {
       "id": "%3DMDD",
@@ -18,7 +18,13 @@
     "Platforms": {
       "id": "M%3D%40%3A",
       "type": "multi_select",
-      "multi_select": []
+      "multi_select": [
+        {
+          "id": "e2849eca-fdc6-4ab3-b3a4-e193a16ca394",
+          "name": "Zenn",
+          "color": "blue"
+        }
+      ]
     },
     "Status": {
       "id": "MDa%5E",
@@ -32,7 +38,7 @@
     "Last updated time": {
       "id": "hVJW",
       "type": "last_edited_time",
-      "last_edited_time": "2026-01-25T04:17:00.000Z"
+      "last_edited_time": "2026-01-25T04:35:00.000Z"
     },
     "Created time": {
       "id": "qAqV",
@@ -64,11 +70,11 @@
     }
   },
   "tags": [],
-  "processedAt": "2026-01-25T04:19:19.234Z",
-  "processingTime": 4300,
+  "processedAt": "2026-01-25T04:36:27.863Z",
+  "processingTime": 8365,
   "images": [
     {
-      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/29230d1b-1f0d-4cc1-a0db-71eb4b8f1a42/Gemini_Generated_Image_pcb5cipcb5cipcb5.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB4665GIV2IBF%2F20260125%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260125T041917Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFQaCXVzLXdlc3QtMiJHMEUCIHnT0sDIqi8yVJzaqqtm0sKq3KyMq0gol%2B63juUDSVu8AiEA3dwSUivDc9ZCciei4rcTzdOu2kARK6981pSXOJDRGxoq%2FwMIHRAAGgw2Mzc0MjMxODM4MDUiDDLUQPv40eaBNIq%2B5yrcAySD1lyrnD%2FELqyLgfJ2nca04N9KY6eV0J%2BvPyJnfWz3kdcP7nAAHdu%2FTWipDzFOAUlKPp2iwn7Na76rsLe3nuuWFDw2zSCk%2BgzsZtcHj4%2FX%2Bxp%2BVoN%2BazgZyg8hTASlpH3e53ZSTzZ46g80CmwqZ80T7vQtxM7L9iXcBWE9FcLpfT1eRsAbQsq4SParq2TPagDBoMnH0JKBOGHBnCDAIQyvplNCxlFIc5d1ftzNWgniChtqI4Fg16IsghOU5GbkFqXUYiEWQC813HvwBAzsCY%2B5UnALq6kn5za6bhGMS%2FwHr%2F5m0AkxcGxASvdAUSus0rYpvKSSkKbfMqtk2jWBbMmVfGlQx4tfg%2BwxPgnU4Rdfru5AVB5ie262H10sljdjNsdt%2FnSlesrsSCd00UO%2Bz7N5%2Bs2ZE2VnoSVwF17zD0BwZvwwSxKc5PMf%2BXHxmkgjApRztFkq3ZSkZQ8tX6Ehgfw9jBaESw6HXucFRU4wicdI4zHpWW627U%2FMAugsMKyHO%2B%2B%2BpY8lYumbZyGchGCTK1zS6k%2BObozpaIsKKQ2X5MhsejsJXBcsNveSxzOW%2F1IbweGt%2BvEkm1EfRhgNMfcuHDhIvdC%2Fl1kY%2Fyb9PKsh5xu2a7wTLQyE0YRMriUFMMCj1ssGOqUB8T1J%2FYmCrgLV6tu1l2auGaycfFgi0QgXMfal%2BsCuwFaTPLO%2BcWH6BxBECkh4tqBisIKhHOqABDxT0vtkpKHFqeNm0Co0s3Via6%2FX9MeVLPQZml6lIvNAlwB0e4EOr%2FwxrVlc4kV6Oauu8KRGSOc1ya9GuMAviVQi6JtljiuxIpEhNKZHSQaUk1dQEQ8nxaXDiUbXrtw24n1pwykkERhFTAQ1ESVM&X-Amz-Signature=41c6d2e2649942eba0503b7f15db438e05229950bd52aa151ce7c2548ce6a17c&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+      "originalUrl": "https://prod-files-secure.s3.us-west-2.amazonaws.com/bbd8d9f5-3763-4d45-9635-606fec6cda9b/29230d1b-1f0d-4cc1-a0db-71eb4b8f1a42/Gemini_Generated_Image_pcb5cipcb5cipcb5.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAZI2LB466U7PHYLME%2F20260125%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20260125T043626Z&X-Amz-Expires=3600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEFQaCXVzLXdlc3QtMiJIMEYCIQCvIa5l%2FR7L4A4HQphb53DUvP0lMR31dJAfFz6SOwhTowIhAIBM4PBnhg251YXYhaifZF4jeDyRsFNo2wiwy2YhbZenKv8DCB0QABoMNjM3NDIzMTgzODA1Igyj%2BDtj1Gv6yKDTOPYq3APwKzqJVIycAXRkHrxYhWSIhYFdcCt7jrDoxkpW7OVOdrfmO7N5ZNyOaSEMs4ARCtmvbKput1STrH6p3wtNFxNXwH8xoElbfy5q8K%2FXKGi%2Bh3Ou0iAPXO7xkn5byPGThIS7HDwoJ%2BzT3BgAfmTEFhCV%2BLJmjn3NJPku27ygX%2BjXnUfOA1QXlhNlQFoPsAQpIionwtOIjEfBK7nKrDC8zQfqShRyS62qrO8MkdHRPYScS0faxdoaPTH0HCJOirZJ7XVtdGPjCqT%2F8iMNYTtTzvpOBdQNMF28yVvo62gqfXitd%2BRjlVbTlUxuUvnyLTSGbuj7R%2BwKxvzSA%2Bc2hww%2BOtu9r%2BgiTIaBsjFCS5TjThDfsuEj37oXzejqDcrYIJMMzsL5HIwq9yc9ownbDTsQk9neNmm1ofIx15vQNyJ0Iy%2BuBp%2FiJbd0zxQXbhmgdsVcieyoA5kyo61%2FU9vrD5VUs%2BXPFkpnVRnxF17ForkiO0VVTTzWWx5D%2BLnn4%2F8qiV9HRGp8qid0rX0SvmBxynaeBqoAotg9vqSV07SNbZJ5PYw%2BMq8rHj63SSI7sNaMg0o6SZXKLYwWbPJYtSdcSJR5EEGMh2pkliT2sAxsWbrfvYnzBNqJgDSlFkEQTvNXDzCuo9bLBjqkAQNboGsU6aHTNLXICUW6ZVzeM8OIxfOlEp%2F1ngQbJSj1w4xPFdIcq7sSFO4ia9lQysU8pCWAH%2FcUINxh33kh07lmWeR90hCEjE3nMeYNMw41zWsIBmjzjuXVicpgUfNc9Q%2FvPsE7QDyHacrXphmL7GzGtKN9HBLaSgBEHT92AmsVA41DD5t4xLT%2FR910i6F9EHxzKRjrJeXnjKU1N8rdJOkjcEJU&X-Amz-Signature=840f7a1d83abe6fc5761339b3f63760ef36fdfc8fcdc103e8547a2f5259b0518&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
       "localPath": "output/images/Gemini_Generated_Image_pcb5cipcb5cipcb5_0.png",
       "markdownPath": "/images/Gemini_Generated_Image_pcb5cipcb5cipcb5_0.png",
       "format": "png"
