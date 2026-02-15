@@ -1,6 +1,6 @@
 import { describe, test, expect, beforeEach } from 'bun:test';
-import { NotionConverter } from '../src/converter';
-import { NotionConverterError } from '../src/types';
+import { NotionConverter } from './converter';
+import { NotionConverterError } from './types';
 
 describe('NotionConverter', () => {
   let converter: NotionConverter;

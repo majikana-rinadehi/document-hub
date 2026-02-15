@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach } from 'bun:test';
-import { ImageHandler } from '../src/image-handler';
+import { ImageHandler } from './image-handler';
 
 describe('ImageHandler', () => {
   let imageHandler: ImageHandler;

@@ -5,8 +5,8 @@ import { writeFileSync, mkdirSync } from "fs";
 import {
   createProcessor,
   processArticle,
-} from "../utils/notion-processor/src/processor";
-import { NotionFetcher } from "../utils/notion-fetcher/src/index";
+} from "./processor/processor";
+import { NotionFetcher } from "./fetcher/index";
 
 const STATUS_PROPERTY_ID = "MDa%5E"; // Status property ID in Notion
 const PROCESSABLE_STATUSES = ["Preview", "Published"];

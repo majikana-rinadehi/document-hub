@@ -2,7 +2,7 @@ import { describe, test, expect, mock, beforeEach, afterEach } from "bun:test";
 import {
   processNotionArticle,
   processNotionArticles,
-} from "../src/helpers";
+} from "./helpers";
 
 // 環境変数のモック
 const originalEnv = process.env;
@@ -35,7 +35,7 @@ describe("Helpers with Mocks", () => {
       };
 
       // NotionProcessorのモック
-      mock.module("../src/processor", () => ({
+      mock.module("./processor", () => ({
         NotionProcessor: mock(() => mockProcessor),
       }));
 
@@ -54,7 +54,7 @@ describe("Helpers with Mocks", () => {
         ),
       };
 
-      mock.module("../src/processor", () => ({
+      mock.module("./processor", () => ({
         NotionProcessor: mock(() => mockProcessor),
       }));
 
@@ -81,7 +81,7 @@ describe("Helpers with Mocks", () => {
         }),
       };
 
-      mock.module("../src/processor", () => ({
+      mock.module("./processor", () => ({
         NotionProcessor: mock(() => mockProcessor),
       }));
 
@@ -131,7 +131,7 @@ describe("Helpers with Mocks", () => {
         }),
       };
 
-      mock.module("../src/processor", () => ({
+      mock.module("./processor", () => ({
         NotionProcessor: mock(() => mockProcessor),
       }));
 
@@ -182,7 +182,7 @@ describe("Helpers with Mocks", () => {
         ),
       };
 
-      mock.module("../src/processor", () => ({
+      mock.module("./processor", () => ({
         NotionProcessor: mock(() => mockProcessor),
       }));
 
@@ -223,7 +223,7 @@ describe("Helpers with Mocks", () => {
         ),
       };
 
-      mock.module("../src/processor", () => ({
+      mock.module("./processor", () => ({
         NotionProcessor: mock(() => mockProcessor),
       }));
 
@@ -251,7 +251,7 @@ describe("Helpers with Mocks", () => {
         }),
       };
 
-      mock.module("../src/processor", () => ({
+      mock.module("./processor", () => ({
         NotionProcessor: mock(() => mockProcessor),
       }));
 

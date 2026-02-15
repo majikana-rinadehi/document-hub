@@ -3,31 +3,32 @@
   "version": "1.0.0",
   "description": "Notion記事をMarkdownに変換して管理するドキュメントハブ",
   "private": true,
-  "workspaces": [
-    "utils/notion-fetcher",
-    "utils/notion-converter",
-    "utils/notion-processor"
-  ],
+  "type": "module",
   "scripts": {
-    "build": "bun run build:all",
-    "build:all": "bun run build:fetcher && bun run build:converter && bun run build:processor",
-    "build:fetcher": "cd utils/notion-fetcher && bun run build",
-    "build:converter": "cd utils/notion-converter && bun run build",
-    "build:processor": "cd utils/notion-processor && bun run build",
-    "test": "bun run test:all",
-    "test:all": "bun run test:fetcher && bun run test:converter && bun run test:processor",
-    "test:fetcher": "cd utils/notion-fetcher && bun test",
-    "test:converter": "cd utils/notion-converter && bun test",
-    "test:processor": "cd utils/notion-processor && bun test",
-    "fetch": "bun run src/cli.ts"
+    "test": "bun test",
+    "fetch": "bun run src/cli.ts",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.14",
+    "notion-to-md": "^3.1.1",
+    "zenn-cli": "^0.2.3"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "typescript": "^5.0.0"
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
   },
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "zenn-cli": "^0.2.3"
-  }
+  "license": "MIT"
 }
