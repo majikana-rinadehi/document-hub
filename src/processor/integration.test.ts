@@ -1,7 +1,7 @@
 import { describe, test, expect, beforeAll } from "bun:test";
-import { NotionProcessor } from "../src/processor";
-import { createNotionProcessor } from "../src/helpers";
-import type { NotionProcessorConfig } from "../src/types";
+import { NotionProcessor } from "./processor";
+import { createNotionProcessor } from "./helpers";
+import type { NotionProcessorConfig } from "./types";
 
 // 統合テスト用の設定
 const testConfig: NotionProcessorConfig = {

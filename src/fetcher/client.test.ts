@@ -1,6 +1,6 @@
 import { describe, test, expect, beforeEach } from 'bun:test';
-import { NotionFetcher } from '../src/client';
-import { NotionFetcherError } from '../src/types';
+import { NotionFetcher } from './client';
+import { NotionFetcherError } from './types';
 
 describe('NotionFetcher', () => {
   let fetcher: NotionFetcher;

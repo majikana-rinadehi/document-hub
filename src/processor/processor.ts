@@ -1,6 +1,6 @@
 import { Client } from '@notionhq/client';
-import { NotionFetcher } from '@document-hub/notion-fetcher/src/client';
-import { NotionConverter } from '@document-hub/notion-converter/src/converter';
+import { NotionFetcher } from '../fetcher/client';
+import { NotionConverter } from '../converter/converter';
 import {
   NotionProcessorError,
 } from './types';

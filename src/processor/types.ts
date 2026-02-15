@@ -2,11 +2,11 @@ import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoin
 import type {
   ArticleMetadata,
   NotionFetcherConfig,
-} from '@document-hub/notion-fetcher/src/types';
+} from '../fetcher/types';
 import type {
   ConversionConfig,
   ImageInfo,
-} from '@document-hub/notion-converter/src/types';
+} from '../converter/types';
 
 export interface NotionProcessorConfig {
   notionApiKey: string;

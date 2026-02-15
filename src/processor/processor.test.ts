@@ -1,6 +1,6 @@
 import { describe, test, expect, beforeEach } from "bun:test";
-import { NotionProcessor } from "../src/processor";
-import type { NotionProcessorConfig } from "../src/types";
+import { NotionProcessor } from "./processor";
+import type { NotionProcessorConfig } from "./types";
 import notionResponses from "./fixtures/notion-responses.json";
 import expectedOutputs from "./fixtures/expected-outputs.json";
 

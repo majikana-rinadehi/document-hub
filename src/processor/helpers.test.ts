@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeEach, afterEach } from "bun:test";
-import { createNotionProcessor, validateConfig } from "../src/helpers";
+import { createNotionProcessor, validateConfig } from "./helpers";
 
 // 環境変数のモック
 const originalEnv = process.env;

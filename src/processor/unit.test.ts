@@ -5,8 +5,8 @@ import {
   checkEnvironmentVariables,
   RetryManager,
   DefaultErrorClassifier 
-} from '../src/helpers';
-import { ErrorType } from '../src/types';
+} from './helpers';
+import { ErrorType } from './types';
 
 describe('Unit Tests', () => {
   describe('validateConfig', () => {

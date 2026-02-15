@@ -1,10 +1,10 @@
 import { describe, test, expect } from 'bun:test';
-import { NotionFetcherError } from '../src/types';
+import { NotionFetcherError } from './types';
 import type { 
   NotionFetcherConfig,
   ArticleMetadata,
   FetchArticleResponse 
-} from '../src/types';
+} from './types';
 
 describe('Types', () => {
   test('NotionFetcherConfigの型定義が正常に使用できること', () => {
