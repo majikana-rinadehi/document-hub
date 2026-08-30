@@ -1,5 +1,7 @@
 # Document Hub 処理フロー図
 
+Notion 同期フローの正本は [notion-sync-flow.drawio.svg](./notion-sync-flow.drawio.svg) です。ワークフローを変更する際は、この図も更新してください。
+
 ## 全体フロー
 
 ```mermaid

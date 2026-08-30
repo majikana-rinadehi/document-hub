@@ -5,6 +5,7 @@
 ## ドキュメント一覧
 
 - [処理フロー図](./processing-flow.md) - システム全体の処理フローを図示したドキュメント
+- [Notion 同期ワークフロー図](./notion-sync-flow.drawio.svg) - Webhook 受信から Zenn 公開用 PR 作成までの実装フロー
 
 ## 処理フロー図について
 

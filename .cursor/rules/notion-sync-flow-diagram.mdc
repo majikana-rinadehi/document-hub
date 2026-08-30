@@ -1,0 +1,18 @@
+---
+description: Notion 同期フロー図を実装と同期する
+globs:
+  - .github/workflows/notion-sync.yml
+  - .github/workflows/publish-to-zenn.yml
+  - proxy/api/webhooks.js
+  - src/cli.ts
+  - src/fetcher/**
+  - src/converter/**
+  - src/processor/**
+alwaysApply: false
+---
+
+# Notion 同期フロー図
+
+対象ファイルが Notion の取得、変換、`output/` への保存、Zenn 公開、Webhook、GitHub Actions のフローを変更する場合は、同じ変更で `docs/notion-sync-flow.drawio.svg` を更新すること。
+
+図には、トリガー、条件分岐、保存先、`main` へのコミット先、Zenn 公開用 Pull Request 作成までを実装どおりに反映すること。ワークフローに影響しない変更では、図を更新しない。
