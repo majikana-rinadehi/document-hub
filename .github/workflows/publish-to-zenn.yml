@@ -72,9 +72,9 @@ jobs:
             // Read metadata
             const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
 
-            // Check if Zenn is in platforms - following the spec: metadata.properties.Platforms.multi_select[].name
+            // Publish to Zenn by default when Platforms is not selected.
             const platforms = metadata.properties?.Platforms?.multi_select || [];
-            const hasZenn = platforms.some(p => p.name === 'Zenn');
+            const hasZenn = platforms.length === 0 || platforms.some(p => p.name === 'Zenn');
 
             if (!hasZenn) {
               console.log('Zenn is not included in platforms metadata');
@@ -84,7 +84,9 @@ jobs:
               return;
             }
 
-            console.log('✅ Zenn is included in platforms, processing article...');
+            console.log(platforms.length === 0
+              ? '✅ Platforms is empty; publishing to Zenn by default...'
+              : '✅ Zenn is included in platforms, processing article...');
 
             // Check if article exists
             const articlePath = path.join(outputDir, `${entityId}.md`);
@@ -233,7 +235,6 @@ jobs:
         with:
           github-token: ${{ steps.generate_token.outputs.token }}
           script: |
-            const { execFileSync } = require('child_process');
             const fs = require('fs');
             const path = require('path');
 
@@ -281,26 +282,6 @@ jobs:
                 pull_number: pr.number,
                 body: buildBody(pr.html_url),
               });
-
-              if (status === 'Preview') {
-                try {
-                  console.log('👀 Status is Preview. Merging via gh with admin...');
-                  const result = execFileSync('gh', [
-                    'pr', 'merge',
-                    '--admin',
-                    '--merge',
-                    String(pr.number),
-                  ], {
-                    encoding: 'utf8',
-                    env: { ...process.env, GH_TOKEN: process.env.GH_TOKEN }
-                  });
-                  console.log('✅ Pull request merged (admin merge).');
-                  console.log(result);
-                } catch (mergeError) {
-                  console.warn('⚠️ Admin merge via gh failed.');
-                  console.warn(mergeError.message);
-                }
-              }
             } catch (error) {
               console.error('Failed to create PR:', error.message);
               throw error;
