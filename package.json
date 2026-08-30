@@ -7,8 +7,10 @@
   "scripts": {
     "test": "bun test",
     "fetch": "bun run src/cli.ts",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix",
+    "lint:es": "eslint src",
+    "lint:es:fix": "eslint src --fix",
+    "lint:ox": "oxlint",
+    "lint:ox:fix": "oxlint --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "type-check": "tsc --noEmit"
   },
@@ -18,14 +20,19 @@
     "zenn-cli": "^0.2.3"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.4",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.14.0",
     "@types/bun": "latest",
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
-    "@typescript-eslint/parser": "^6.19.0",
-    "eslint": "^8.56.0",
+    "@types/eslint__js": "^9.14.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.15.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.0",
+    "oxlint": "^1.47.0",
     "prettier": "^3.2.4",
     "typescript": "^5.3.3"
   },
