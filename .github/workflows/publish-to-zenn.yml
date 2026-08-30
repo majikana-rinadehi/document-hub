@@ -254,11 +254,12 @@ jobs:
             // Create PR using gh CLI
             const prTitle = `📝 Publish to Zenn: ${title}`;
             const statusLabel = status === 'Published' ? '公開' : '下書き';
+            const articleUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/blob/${branchName}/articles/${entityId}.md`;
             const buildBody = (prUrl = '') => [
               '*Zenn記事PRです*',
               `*状態:* ${statusLabel}`,
-              `*記事:* <https://zenn.dev/rudy/articles/${entityId}|${title}>`,
-              prUrl ? `*PR:* <${prUrl}|${prTitle}>` : '*PR:* (作成中)',
+              `*記事:* <${articleUrl} | ${title}>`,
+              prUrl ? `*PR:* <${prUrl} | ${prTitle}>` : '*PR:* (作成中)',
               '',
               'レビューお願い！気になる点あればコメントして🙏',
             ].join('\n');
